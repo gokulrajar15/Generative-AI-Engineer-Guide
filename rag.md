@@ -1,55 +1,50 @@
-## 13. RAG (Retrieval-Augmented Generation)
+### RAG (Retrieval-Augmented Generation)
 
-### Understanding vector search and distance metrics
-- Leaderboards across different domains (Finance, E-commerce, Multilingual, etc.).
+### 1. Understanding vector search and distance metrics
 
-### Understanding and hands-on experience with dense embedding models
+### 2. Understanding algorithms behind vector search engines
 
-### Understanding and hands-on experience with sparse models
-
-### Understanding late interaction models
+### 3. Understanding dense embedding models, sparse models, late interaction models
 - ColBERT.
 - ColPali.
 
-### Understanding and hands-on experience with reranker models
-
-### Understanding hybrid retrieval approaches
-
-### Understanding algorithms behind vector search engines
-
-### Hands-on experience with various document extraction techniques
-- PDF, DOC, etc.
-
-### OCR-based document extraction techniques and hands-on practice
-
-### Chunking strategies
+### 4. Chunking strategies
 - Best practices.
 - Hands-on implementation.
 
-### Hands-on experience with 5+ vector databases
+### 5. Hands-on experience with various document extraction techniques
+- PDF, DOC, etc.
+
+### 6. OCR-based document extraction techniques and hands-on practice
+
+### 7. Hands-on experience with 5+ vector databases
 - Qdrant.
 - Pinecone.
 - Weaviate.
 - PGVector.
 - FAISS.
 
-### Optimization strategies for vector database indexing
+### 8. Optimization strategies for vector database indexing
 - Quantization.
 - Multitenancy.
 - Sharding.
 
-### Retrieval strategies
+### 9. Retrieval strategies
 - Multi-query retrieval.
 - Parent-document retrievers.
 
-### Generation strategies and best practices
+### 10. Understanding and hands-on experience with reranker models
 
-### Understanding and hands-on experience with multimodal vector search
+### 11. Understanding hybrid retrieval approaches
 
-### Evaluation metrics in RAG
+### 12. Generation strategies and best practices
 
-### Types of RAG architectures
+### 13. Understanding and hands-on experience with multimodal vector search
 
-### Caching
+### 14. Evaluation metrics in RAG
 
-### Understanding and hands-on practice with graph databases
+### 15. Types of RAG architectures
+
+### 16. Caching
+
+### 17. Understanding and hands-on practice with graph databases
