@@ -1,4 +1,4 @@
-### RAG (Retrieval-Augmented Generation)
+# RAG (Retrieval-Augmented Generation)
 
 ### 1. Understanding vector search and distance metrics
 
@@ -17,12 +17,22 @@
 
 ### 6. OCR-based document extraction techniques and hands-on practice
 
-### 7. Hands-on experience with 5+ vector databases
-- Qdrant.
-- Pinecone.
-- Weaviate.
-- PGVector.
-- FAISS.
+### 7. Vector databases and Cloud based vector database services
+ - 7.1 Vector databases:
+   - Qdrant.
+   - Pinecone.
+   - Weaviate.
+   - PGVector.
+   - FAISS.
+   - Milvus.
+   - Postgres.
+   - MongoDB.
+   
+ - 7.2 Cloud-based vector database services:
+    - AWS Bedrock Knowledge base, AWS S3 vector buckets, AWS OpenSearch.
+    - Azure AI Search.
+    - Google Vertex AI Matching Engine.
+
 
 ### 8. Optimization strategies for vector database indexing
 - Quantization.
