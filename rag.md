@@ -52,11 +52,14 @@ An exploration of algorithms like HNSW (Hierarchical Navigable Small World) and 
 - Multi-query retrieval
 - Parent-document retrievers
 
+
 ## 10. Reranker Models
 - Understanding and hands-on experience.
 
 ## 11. Hybrid Retrieval Approaches
 - Concepts and applications.
+
+## 12. Hybrid RAG
 
 ## 12. Generation Strategies
 - Best practices.
