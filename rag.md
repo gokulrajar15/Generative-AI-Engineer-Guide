@@ -1,60 +1,78 @@
 # RAG (Retrieval-Augmented Generation)
 
-### 1. Understanding vector search and distance metrics
+## 1. Vector Search and Distance Metrics
+### 1.1 Vector Search
+An introduction to vector search and its applications in RAG. [Learn more](https://weaviate.io/blog/vector-search-explained)
 
-### 2. Understanding algorithms behind vector search engines
+### 1.2 Distance Metrics
+An overview of various distance metrics used in vector search, such as cosine similarity, Euclidean distance, and Manhattan distance. [Learn more](https://weaviate.io/blog/distance-metrics-in-vector-search#how-to-choose-a-distance-metric)
 
-### 3. Understanding dense embedding models, sparse models, late interaction models
-- ColBERT.
-- ColPali.
+## 2. Algorithms Behind Vector Search Engines
+### 2.1 Vector Search Algorithms
+An exploration of algorithms like HNSW (Hierarchical Navigable Small World) and IVF (Inverted File Index) that power vector search engines. [Learn more](https://www.pinecone.io/learn/vector-database/)
 
-### 4. Chunking strategies
+## 3. Embedding Models
+- Dense embedding models.
+- Sparse models.
+- Late interaction models (e.g., ColBERT, ColPali).
+
+## 4. Chunking Strategies
 - Best practices.
 - Hands-on implementation.
 
-### 5. Hands-on experience with various document extraction techniques
-- PDF, DOC, etc.
+## 5. Document Extraction Techniques
+- Hands-on experience with various document formats (PDF, DOC, etc.).
 
-### 6. OCR-based document extraction techniques and hands-on practice
+## 6. OCR-Based Document Extraction
+- Techniques and hands-on practice.
 
-### 7. Vector databases and Cloud based vector database services
- - 7.1 Vector databases:
-   - Qdrant.
-   - Pinecone.
-   - Weaviate.
-   - PGVector.
-   - FAISS.
-   - Milvus.
-   - Postgres.
-   - MongoDB.
-   
- - 7.2 Cloud-based vector database services:
-    - AWS Bedrock Knowledge base, AWS S3 vector buckets, AWS OpenSearch.
-    - Azure AI Search.
-    - Google Vertex AI Matching Engine.
+## 7. Vector Databases and Cloud-Based Services
+### 7.1 Vector Databases
+- Qdrant
+- Pinecone
+- Weaviate
+- PGVector
+- FAISS
+- Milvus
+- Postgres
+- MongoDB
 
+### 7.2 Cloud-Based Vector Database Services
+- AWS Bedrock Knowledge Base
+- AWS S3 Vector Buckets
+- AWS OpenSearch
+- Azure AI Search
+- Google Vertex AI Matching Engine
 
-### 8. Optimization strategies for vector database indexing
-- Quantization.
-- Multitenancy.
-- Sharding.
+## 8. Optimization Strategies for Vector Database Indexing
+- Quantization
+- Multitenancy
+- Sharding
 
-### 9. Retrieval strategies
-- Multi-query retrieval.
-- Parent-document retrievers.
+## 9. Retrieval Strategies
+- Multi-query retrieval
+- Parent-document retrievers
 
-### 10. Understanding and hands-on experience with reranker models
+## 10. Reranker Models
+- Understanding and hands-on experience.
 
-### 11. Understanding hybrid retrieval approaches
+## 11. Hybrid Retrieval Approaches
+- Concepts and applications.
 
-### 12. Generation strategies and best practices
+## 12. Generation Strategies
+- Best practices.
 
-### 13. Understanding and hands-on experience with multimodal vector search
+## 13. Multimodal Vector Search
+- Understanding and hands-on experience.
 
-### 14. Evaluation metrics in RAG
+## 14. Evaluation Metrics in RAG
+- Key metrics and their applications.
 
-### 15. Types of RAG architectures
+## 15. RAG Architectures
+- Types and use cases.
 
-### 16. Caching
+## 16. Caching
+- Strategies and implementation.
 
-### 17. Understanding and hands-on practice with graph databases
+## 17. Graph Databases
+- Understanding and hands-on practice.
