@@ -12,13 +12,12 @@ An overview of various distance metrics used in vector search, such as cosine si
 An exploration of algorithms like HNSW (Hierarchical Navigable Small World) and IVF (Inverted File Index) that power vector search engines. [Learn more](https://www.pinecone.io/learn/vector-database/)
 
 ## 3. Embedding Models
-- Dense embedding models.
-- Sparse models.
-- Late interaction models (e.g., ColBERT, ColPali).
+- Dense embedding models. [Learn more](https://www.pinecone.io/learn/series/nlp/dense-vector-embeddings-nlp/)
+- Sparse models. [Learn more](https://www.pinecone.io/learn/series/nlp/sparse-vector-embeddings-nlp/)
+- Late interaction models (e.g., ColBERT, ColPali). [Learn more](https://weaviate.io/blog/late-interaction-overview#3-types-of-interaction-in-dense-retrieval-models)
 
 ## 4. Chunking Strategies
-- Best practices.
-- Hands-on implementation.
+- Techniques for breaking down documents into manageable pieces for indexing and retrieval. [Learn more](https://weaviate.io/blog/chunking-strategies-for-rag#what-is-chunking)
 
 ## 5. Document Extraction Techniques
 - Hands-on experience with various document formats (PDF, DOC, etc.).
