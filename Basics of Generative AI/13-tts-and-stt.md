@@ -24,3 +24,12 @@
 
 - **Google**: gemini-2.5-flash-preview-tts
 - **OpenAI**: gpt-4o-mini-tts, gpt-4o-mini-transcribe
+
+---
+
+
+*Now that you understand the basics of TTS and STT models, let's explore image and video generation models in the next section.*
+
+**Next**: [Image generation models](14-image-generation.md)
+
+[← Back to Index](README.md)

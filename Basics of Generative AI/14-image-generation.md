@@ -33,4 +33,8 @@ Most modern LLMs support multi-modal capabilities, processing and generating:
 
 **Example**: Google's Gemini 2.5 Flash supports multi-modal input and output, allowing it to understand and generate content across different media types.
 
----**Next**: [← Back to Index](README.md)
+*Now that you understand the basics of image generation models, let's explore video generation models in the next section.*
+
+**Next**: [Video generation models](15-video-generation.md)
+
+[← Back to Index](README.md)

@@ -32,6 +32,13 @@ In NLP, word embeddings represent words in a continuous vector space where simil
 - **Cohere**: Embed v4, Embed v3, Reranker v4, Reranker v3
 - **Jina AI**: Jina Embeddings 2.0, Jina Embeddings 1.0, Jina Reranker V3
 
+
+Note: In RAG modules, you'll know why the embeddings and rerankers are important and how to use them effectively for semantic search and retrieval.
+
 ---
 
-**Next**: [← Back to Index](README.md)
+*Now that you understand the basics of embeddings and rerankers, let's explore how to use them for semantic search and vector databases in the next section.*
+
+**Next**: [Text to speech and Speech to text models](13-tts-and-stt.md)
+
+[← Back to Index](README.md)
