@@ -23,7 +23,7 @@ The `messages` parameter is a **list of turns** in the conversation. Each messag
 
 ## The Three Roles
 
-### 1. `system`
+### 1. `system` 
 - Sets the **behavior, persona, or rules** for the assistant.
 - Sent once, at the beginning.
 - The model treats this as background instructions — the user doesn't "see" it.
@@ -31,6 +31,7 @@ The `messages` parameter is a **list of turns** in the conversation. Each messag
 ```python
 {"role": "system", "content": "You are a helpful assistant named Max."}
 ```
+Note: Also known as system prompt or instruction prompt. You can include facts, rules, or style guidelines here.
 
 ### 2. `user`
 - The **human's input** — questions, requests, commands.
@@ -747,3 +748,10 @@ This gives you the best of all three strategies.
 
 > **Key insight:** Context management is not a model problem — it's an **engineering problem**. How you structure and trim the `messages` array directly determines the quality, cost, and reliability of your LLM application.
 
+
+
+*Now that you understand the core strategies for managing conversation context, Let's move on to the prompt engineering techniques that can further optimize how you craft messages(system prompt) for better model performance.*
+
+**Next**: [Prompt Engineering](06-prompting-strategies.md)
+
+[← Back to Index](README.md)
