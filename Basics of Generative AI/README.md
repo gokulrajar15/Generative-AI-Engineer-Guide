@@ -27,7 +27,7 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
 
 ### Practical Skills (Week 2-3)
 5. [**Hands-on Practice with APIs**](05-hands-on-practice.md)
-   - Working with OpenAI, Google Gemini, Groq APIs
+   - Working with OpenAI, Google Gemini, Claude, Groq APIs
    - Text generation and basic interactions
 
 6. [**Prompting Best Practices and Strategies**](06-prompting-strategies.md)
