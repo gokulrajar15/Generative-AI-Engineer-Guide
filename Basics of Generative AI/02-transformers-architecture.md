@@ -98,6 +98,7 @@ Reference:
 
 ---
 
+*Checkout the tokenization techniques used in these architectures in the next section.*
 
 **Next**: [Tokenization and It's Types→](03-tokenizers.md)
 

@@ -204,6 +204,8 @@ except ImportError:
     print(tokens)
 ```
 
+Note: Most of the modern LLMs (like GPT, LLaMA, Mistral) use BPE tokenization or its variants, making it crucial to understand for working with these models effectively.
+
 ---
 
 ### 5. Subword Tokenization
@@ -253,51 +255,27 @@ The Treebank tokenizer adheres to the conventions outlined in the Penn Treebank,
 | **Maximum Matching** | Asian languages (Chinese, Japanese) | Good for no-space languages | Dictionary dependent |
 | **Treebank** | Linguistic analysis, parsing | Grammatically consistent | English-focused |
 
-### Installation Requirements:
+---
+## Hands-on :
 
-```bash
-# Basic tokenization
-pip install nltk
+### 1. OpenAI Tokenizer Tools
 
-# Advanced tokenization (BPE, Subword)
-pip install transformers tokenizers
+Try OpenAI tokenizer tool or SDK to experiment with different tokenization methods and understand how they affect model performance and cost.
 
-# Download NLTK data
-python -c "import nltk; nltk.download('punkt')"
-```
+[OpenAI Tokenizer Tool](https://platform.openai.com/tokenizer) - A web-based tool to visualize how different tokenization methods break down text and to understand token counts for cost estimation.
 
-### Quick Start Example:
+[OpenAI Tiktoken SDK](https://github.com/openai/tiktoken/tree/main) - A Python library for tokenization that supports various algorithms, including BPE. It allows you to experiment with tokenization in your own projects and understand how it impacts model performance and cost.
 
-```python
-# Complete tokenization workflow
-from transformers import AutoTokenizer
+### 2. Hugging Face Tokenizers
 
-def complete_tokenization_example():
-    """Example showing modern tokenization workflow"""
-    
-    # Load a pre-trained tokenizer
-    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-    
-    text = "Hello! I'm learning about tokenization in 2026."
-    
-    # Tokenize
-    tokens = tokenizer.tokenize(text)
-    print(f"Tokens: {tokens}")
-    
-    # Convert to IDs (needed for model input)
-    token_ids = tokenizer.encode(text)
-    print(f"Token IDs: {token_ids}")
-    
-    # Decode back to text
-    decoded = tokenizer.decode(token_ids)
-    print(f"Decoded: {decoded}")
-    
-    # Get special tokens
-    print(f"Special tokens: {tokenizer.all_special_tokens}")
+Hugging Face provides a powerful library for tokenization that supports multiple algorithms and is widely used in the NLP community. You can experiment with different tokenizers and see how they affect the input text.
 
-# Run example
-try:
-    complete_tokenization_example()
-except ImportError:
-    print("Install transformers: pip install transformers")
-```
+[Hugging Face Tokenizers](https://github.com/huggingface/tokenizers) - A comprehensive library for tokenization that supports various algorithms, including BPE, WordPiece, and SentencePiece. It allows you to experiment with tokenization in your own projects and understand how it impacts model performance and cost.
+
+---
+
+*Checkout model parameters and their impact on inference in the next section.*
+
+**Next**: [Model Parameters](04-model-parameters.md)
+
+[← Back to Index](README.md)

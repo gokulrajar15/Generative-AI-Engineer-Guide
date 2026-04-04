@@ -28,6 +28,57 @@ Large Language Models (LLMs) are artificial intelligence models designed to unde
 
 ---
 
+## Hands-on:
+
+Little hands-on practice with openai api to call GPT-5.4 for text generation:
+
+```terminal
+pip install openai
+```
+
+Run the following code snippet to call GPT-5.4 for text generation:
+
+```python
+
+from openai import OpenAI
+client = OpenAI(api_key="your_api_key")
+
+response = client.responses.create(
+    model="gpt-5.4", 
+    input="hi",
+    temperature=0.7,     ## you'll learn about these parameters in the upcoming section on [Model Parameters and Key Terms](04-model-parameters.md)
+    top_p=0.9,
+    max_output_tokens=100
+)
+
+print(response.output_text)
+```
+
+[Explore more about openai models and their APIs](https://developers.openai.com/api/docs?lang=python)
+
+If you don't have openai api access, you can experiment with groq api and call their hosted open-source models gpt-oss or mistral 3 for free:
+
+```python
+
+
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your_groq_api_key",  ## Get it for free from https://console.groq.com/keys
+    base_url="https://api.groq.com/openai/v1",
+)
+
+response = client.responses.create(
+    input="Explain the importance of fast language models",
+    model="openai/gpt-oss-20b",
+)
+print(response.output_text)
+
+```
+
+[Explore more about groq models and their APIs](https://console.groq.com/docs/overview)
+
+*Checkout the architecture behind these Generative AI models in the next section.*
 
 **Next**: [Transformers and Other Architectures →](02-transformers-architecture.md)
 
