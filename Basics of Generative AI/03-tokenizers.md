@@ -1,0 +1,303 @@
+## Tokenization
+
+### What Is Tokenization?
+The tokenization process involves dividing input text and output text into smaller units, known as tokens, suitable for processing by LLMs. Tokens can be words, subwords, characters, or symbols, depending on the model's type and size.
+
+![Tokenization](../assets/Basics_of_Generative_AI/03-tokenizers/tokenization.png)
+
+Tokenization enables LLMs to navigate different languages, formats, and vocabularies, reducing computational and memory costs.
+
+### Why Do We Need to Tokenize?
+Tokenization plays an essential role in shaping the quality and diversity of generated text, by influencing the meaning and context of the tokens in LLMs. In addition to text segmentation, it optimizes resource usage, expedites processing, and facilitates adept management of linguistic complexes. 
+
+Essential for contextual understanding, tokenization improves an LLM's effectiveness in tasks like summarization and translation — with acknowledged limitations such as language bias and dialect challenges.
+
+---
+
+## Tokenization Algorithms
+
+Here are some important types of tokenization algorithms:
+
+### 1. Whitespace Tokenization
+
+This tokenizer uses whitespace characters such as spaces, tabs, and newlines to separate words. It's a simple method that doesn't consider linguistic structures, often used as a baseline tokenizer in text processing.
+
+**Example**: `"Hello, World"` → `["Hello,", "World"]`
+
+**Python Implementation**:
+```python
+# Simple whitespace tokenization
+def whitespace_tokenize(text):
+    """Split text by whitespace characters"""
+    return text.split()
+
+# Example usage
+text = "Hello, World! This is tokenization."
+tokens = whitespace_tokenize(text)
+print(tokens)
+# Output: ['Hello,', 'World!', 'This', 'is', 'tokenization.']
+```
+
+---
+
+### 2. Sentence Tokenization
+
+Sentence tokenization involves using punctuation and context to break text into sentences. It helps in higher-level language understanding by dividing text into meaningful units. It also aids in various NLP tasks such as sentiment analysis and machine translation.
+
+**Example**: `"This is a sentence. And this is another."` → `["This is a sentence.", "And this is another."]`
+
+**Python Implementation**:
+```python
+import re
+
+# Simple sentence tokenization
+def sentence_tokenize(text):
+    """Split text into sentences using punctuation"""
+    # Simple regex pattern for sentence boundaries
+    sentences = re.split(r'[.!?]+\s*', text)
+    return [s.strip() for s in sentences if s.strip()]
+
+# Using NLTK (more robust)
+try:
+    import nltk
+    nltk.download('punkt', quiet=True)
+    
+    def sentence_tokenize_nltk(text):
+        """Split text into sentences using NLTK"""
+        return nltk.sent_tokenize(text)
+    
+    # Example usage
+    text = "This is a sentence. And this is another! What about questions?"
+    tokens = sentence_tokenize_nltk(text)
+    print(tokens)
+    # Output: ['This is a sentence.', 'And this is another!', 'What about questions?']
+except ImportError:
+    print("NLTK not installed. Use: pip install nltk")
+```
+
+---
+
+### 3. Word Tokenization
+
+Word tokenization uses language-specific rules to segment text into individual words. It takes into account common word delimiters like spaces and punctuation marks, providing a fundamental approach for processing natural language text.
+
+**Example**: `"This is a programmer."` → `["This", "is", "a", "programmer"]`
+
+**Python Implementation**:
+```python
+import re
+
+# Simple word tokenization
+def word_tokenize(text):
+    """Split text into words, removing punctuation"""
+    # Remove punctuation and split by whitespace
+    words = re.findall(r'\b\w+\b', text)
+    return words
+
+# Using NLTK (more robust)
+try:
+    import nltk
+    nltk.download('punkt', quiet=True)
+    
+    def word_tokenize_nltk(text):
+        """Split text into words using NLTK"""
+        return nltk.word_tokenize(text)
+    
+    # Example usage
+    text = "This is a programmer. He codes in Python!"
+    tokens = word_tokenize_nltk(text)
+    print(tokens)
+    # Output: ['This', 'is', 'a', 'programmer', '.', 'He', 'codes', 'in', 'Python', '!']
+except ImportError:
+    # Fallback to simple version
+    tokens = word_tokenize(text)
+    print(tokens)
+    # Output: ['This', 'is', 'a', 'programmer', 'He', 'codes', 'in', 'Python']
+```
+
+---
+
+### 4. Byte Pair Encoding (BPE)
+
+BPE is a data compression technique that is applied in tokenization by merging frequently occurring pairs of characters. This process creates a vocabulary of subword units, effectively representing words and enabling the handling of rare or out-of-vocabulary terms.
+
+**Example**: Given the input text `"abracadabra"`, BPE might iteratively merge the most frequent character pairs, resulting in subword units like `{"abrc", "a", "d", "ab", "r", "c"}`. Tokenizing the original text using this vocabulary yields `["abrc", "a", "d", "a", "br", "a"]`.
+
+**Python Implementation**:
+```python
+from collections import Counter
+import re
+
+def get_stats(vocab):
+    """Count frequency of adjacent symbol pairs"""
+    pairs = Counter()
+    for word, freq in vocab.items():
+        symbols = word.split()
+        for i in range(len(symbols) - 1):
+            pairs[symbols[i], symbols[i + 1]] += freq
+    return pairs
+
+def merge_vocab(pair, vocab):
+    """Merge the most frequent pair in vocabulary"""
+    bigram = re.escape(' '.join(pair))
+    pattern = re.compile(r'(?<!\S)' + bigram + r'(?!\S)')
+    new_vocab = {}
+    for word, freq in vocab.items():
+        new_word = pattern.sub(''.join(pair), word)
+        new_vocab[new_word] = freq
+    return new_vocab
+
+def bpe_tokenize(text, num_merges=10):
+    """Simple BPE tokenization implementation"""
+    # Initialize vocabulary with character-level tokens
+    vocab = {}
+    for word in text.split():
+        word_chars = ' '.join(list(word))
+        vocab[word_chars] = vocab.get(word_chars, 0) + 1
+    
+    # Perform BPE merges
+    for i in range(num_merges):
+        pairs = get_stats(vocab)
+        if not pairs:
+            break
+        best_pair = max(pairs, key=pairs.get)
+        vocab = merge_vocab(best_pair, vocab)
+    
+    # Tokenize text using learned vocabulary
+    tokens = []
+    for word in text.split():
+        word_chars = ' '.join(list(word))
+        # Find the representation in vocab
+        for v in vocab:
+            if v.replace(' ', '') == word:
+                tokens.extend(v.split())
+                break
+    return tokens
+
+# Using Hugging Face tokenizers (recommended for production)
+try:
+    from tokenizers import Tokenizer
+    from tokenizers.models import BPE
+    from tokenizers.trainers import BpeTrainer
+    from tokenizers.pre_tokenizers import Whitespace
+    
+    def bpe_tokenize_hf(text, vocab_size=1000):
+        """BPE tokenization using Hugging Face tokenizers"""
+        tokenizer = Tokenizer(BPE())
+        tokenizer.pre_tokenizer = Whitespace()
+        
+        trainer = BpeTrainer(vocab_size=vocab_size, special_tokens=["<PAD>", "<UNK>"])
+        tokenizer.train_from_iterator([text], trainer=trainer)
+        
+        output = tokenizer.encode(text)
+        return output.tokens
+    
+    # Example usage
+    text = "low lower lowest"
+    tokens = bpe_tokenize_hf(text)
+    print(tokens)
+except ImportError:
+    print("Install tokenizers: pip install tokenizers")
+    # Use simple version
+    text = "low lower lowest"
+    tokens = bpe_tokenize(text, num_merges=5)
+    print(tokens)
+```
+
+---
+
+### 5. Subword Tokenization
+
+Subword tokenization breaks down words into smaller units, allowing the model to handle unseen words and improve generalization. It is commonly employed in neural machine translation and other tasks where subword representations are beneficial.
+
+**Example**: `"unhappiness"` → `["un", "happi", "ness"]`
+
+---
+
+### 6. Tokenization Using Regular Expressions
+
+This method utilizes predefined patterns encoded in regular expressions to tokenize text. It is a flexible approach that allows customization based on specific tokenization rules, making it suitable for tasks with unique text processing requirements.
+
+**Example**: `"abc123xyz"` → `["abc", "123", "xyz"]`
+
+---
+
+### 7. Maximum Matching Tokenizer
+
+The maximum matching tokenizer segments text by selecting the longest possible match from a dictionary. It is often employed in languages with limited word boundaries, providing a heuristic-based approach to tokenization.
+
+**Example**: `"applepie"` → `["apple", "pie"]`
+
+---
+
+### 8. Treebank Tokenizer
+
+The Treebank tokenizer adheres to the conventions outlined in the Penn Treebank, a widely used corpus in NLP. It tokenizes text based on grammatical structures, helping maintain consistency in tokenization across various applications.
+
+**Example**: `"It's raining cats and dogs."` → `["It", "'s", "raining", "cats", "and", "dogs", "."]`
+
+---
+
+## Summary and Best Practices
+
+### When to Use Each Tokenizer:
+
+| Tokenizer | Best Use Case | Pros | Cons |
+|-----------|--------------|------|------|
+| **Whitespace** | Quick prototyping, simple applications | Fast, simple | Doesn't handle punctuation |
+| **Sentence** | Document analysis, summarization | Preserves sentence structure | Struggles with abbreviations |
+| **Word** | General NLP tasks | Language-aware | Struggles with unknown words |
+| **BPE** | Modern LLMs (GPT, LLaMA) | Handles rare words, efficient | Complex to implement |
+| **Subword** | Neural translation, BERT models | Good generalization | Requires pre-trained vocabulary |
+| **Regex** | Custom text formats, structured data | Highly flexible | Requires regex knowledge |
+| **Maximum Matching** | Asian languages (Chinese, Japanese) | Good for no-space languages | Dictionary dependent |
+| **Treebank** | Linguistic analysis, parsing | Grammatically consistent | English-focused |
+
+### Installation Requirements:
+
+```bash
+# Basic tokenization
+pip install nltk
+
+# Advanced tokenization (BPE, Subword)
+pip install transformers tokenizers
+
+# Download NLTK data
+python -c "import nltk; nltk.download('punkt')"
+```
+
+### Quick Start Example:
+
+```python
+# Complete tokenization workflow
+from transformers import AutoTokenizer
+
+def complete_tokenization_example():
+    """Example showing modern tokenization workflow"""
+    
+    # Load a pre-trained tokenizer
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+    
+    text = "Hello! I'm learning about tokenization in 2026."
+    
+    # Tokenize
+    tokens = tokenizer.tokenize(text)
+    print(f"Tokens: {tokens}")
+    
+    # Convert to IDs (needed for model input)
+    token_ids = tokenizer.encode(text)
+    print(f"Token IDs: {token_ids}")
+    
+    # Decode back to text
+    decoded = tokenizer.decode(token_ids)
+    print(f"Decoded: {decoded}")
+    
+    # Get special tokens
+    print(f"Special tokens: {tokenizer.all_special_tokens}")
+
+# Run example
+try:
+    complete_tokenization_example()
+except ImportError:
+    print("Install transformers: pip install transformers")
+```
