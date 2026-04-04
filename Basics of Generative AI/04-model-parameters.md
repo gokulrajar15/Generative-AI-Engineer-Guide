@@ -14,7 +14,7 @@ from openai import OpenAI
 client = OpenAI(api_key="your_api_key")
 
 response = client.chat.completions.create(
-    model="gpt-4o-mini",
+    model="gpt-5.4-mini",
 
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
@@ -54,7 +54,7 @@ Messages are the input format for chat-based models, consisting of a list of dic
 - **user**: The user's input or query
 - **assistant**: The model's previous responses (used for multi-turn conversations)
 
-You'll learn more about crafting effective messages and prompts in the upcoming sections on [Prompt Engineering](06-prompt-strategies.md) and [Context Management](07-context-management.md).
+You'll learn more about crafting effective messages and prompts in the upcoming section [Context Management](05-context-management.md).
 
 
 ### 3. Temperature
@@ -223,6 +223,10 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 - Useful for comparing alternatives
 
 ---
+## Other terms to know:
+- **Context Window**: Total tokens (input + output) that the model can process. this is a hard limit based on the model architecture (e.g., 1M tokens for GPT-5.4, 8192+ for GPT-4).
+
+![Context Window](../assets/Basics_of_Generative_AI/04-model-parameters/context_window.png)
 
 ## Best Practices and Common Configurations
 
@@ -291,12 +295,15 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 
 ## References and Further Reading
 
+- [Temperature, top-k, top-p explanation in Youtube](https://www.youtube.com/watch?v=jnikMver_CE) <---- Must watch for understanding these parameters in depth.
+- [Top k and Top p sampling explained](https://www.youtube.com/watch?v=_3DWwb96exY) <---- Another great video for understanding sampling techniques.
+
 - [OpenAI API Documentation - Chat Completions](https://platform.openai.com/docs/api-reference/chat)
 - [Anthropic Claude API Documentation](https://platform.claude.com/docs/en/api/messages/create)
 
 
-*Do a experimentation with different parameter settings to see how they affect the output. Adjusting these parameters is key to tailoring the model's behavior to your specific use case.*
+*We will cover more advanced techniques for controlling model outputs, such as prompt engineering and context management, in the upcoming sections.*
 
-**Next**: [Hands-On Practice](05-hands-on-practice.md)
+**Next**: [Context Management](05-context-management.md)
 
 [← Back to Index](README.md)

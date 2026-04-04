@@ -36,6 +36,7 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
    - Role-based prompting, System messages
 
 7. [**Context Management**](07-context-management.md)
+   - Managing conversation history
    - Rolling window, Recursive summarization
    - Selective retention
    - Best practices for long conversations
