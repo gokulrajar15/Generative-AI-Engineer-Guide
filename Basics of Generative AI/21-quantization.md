@@ -5,6 +5,8 @@ Techniques for optimizing LLMs and reducing model size:
 - **GPTQ**: Post-training quantization
 - **AWQ**: Activation-aware Weight Quantization
 - **GGUF**: Efficient format for CPU inference
+- **APEX**: novel quantization technique for Mixture-of-Experts language models
+- **Unsloth Dynamic 2.0 Quants(UD)**: New 2.0 version of our Dynamic GGUF + Quants. Dynamic 2.0 achieves superior accuracy & SOTA quantization performance.
 - **TurboQuant**: Compression method that achieves a high reduction in model size with zero accuracy loss, ideal for supporting both key-value (KV) cache compression and vector search.
 
 **Benefits**:
