@@ -1,7 +1,8 @@
 # Understanding LLM Evaluation Metrics
 
 Evaluating LLMs requires a comprehensive approach, employing a range of measures to assess various aspects of their performance. In this discussion, we explore key evaluation criteria for LLMs, including accuracy and performance, bias and fairness, as well as other important metrics.
----
+
+![LLM Evaluation Metrics](../assets/Basics_of_Generative_AI/16-evaluation-metrics/llm_metrics.png)
 
 ## Why Evaluation is Hard for LLMs
 
@@ -261,6 +262,12 @@ Promote to production   ──or──   Roll back
 | Is it fast enough? | Latency (p50, p99) |
 | Is it worth the cost? | Cost per query + ROI |
 
-📚 **Further reading:** [LLM Evaluation — DataCamp](https://www.datacamp.com/blog/llm-evaluation) · [Prompt Engineering Guide](https://www.promptingguide.ai/techniques)
+📚 **Further reading:** 
+[LLM Evaluation — DataCamp](https://www.datacamp.com/blog/llm-evaluation) 
+[LLM Evaluation — Analytics Vidhya](https://www.analyticsvidhya.com/blog/2025/03/llm-evaluation-metrics/)
 
 > **Key insight:** No single metric tells the full story. Use technical metrics to debug model quality and business metrics to justify the product. Run both continuously — not just at launch.
+
+**Next**: [Inference Metrics](17-inference-metrics.md)
+
+[← Back to Index](README.md)
