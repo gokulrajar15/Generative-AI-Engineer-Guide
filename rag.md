@@ -118,3 +118,8 @@ Retrieval-Augmented Generation (RAG) is a framework that combines retrieval tech
 
 ## 16. Graph Databases
 - Understanding and hands-on practice.
+
+## 17. Vectorless rag 
+
+References:
+- [Vectorless RAG Overview](https://github.com/VectifyAI/PageIndex)
