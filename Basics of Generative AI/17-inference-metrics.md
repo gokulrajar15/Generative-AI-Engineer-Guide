@@ -14,3 +14,9 @@ Key performance indicators:
 📚 [Read more about inference metrics](https://bentoml.com/llm/inference-optimization/llm-inference-metrics)
 
 [Infrence metrics by nvidia](https://docs.nvidia.com/nim/benchmarking/llm/latest/metrics.html)
+
+---
+
+**Next**: [Benchmarking LLMs](18-benchmarks.md)
+
+[← Back to Index](README.md)
