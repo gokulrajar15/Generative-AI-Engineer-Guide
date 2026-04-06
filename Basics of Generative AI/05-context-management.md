@@ -749,6 +749,25 @@ This gives you the best of all three strategies.
 > **Key insight:** Context management is not a model problem — it's an **engineering problem**. How you structure and trim the `messages` array directly determines the quality, cost, and reliability of your LLM application.
 
 
+## Conversation Branching and Versioning
+
+In conversation chatbots, you may need to implement a branching feature, where user can create a new branch of conversation. This is useful when user wants to explore a different topic or go back to a previous point in the conversation. You can implement this by allowing the user to select a previous message and create a new branch from that point. The new branch will have its own `messages` array, starting from the selected message. This way, you can maintain multiple conversation threads and allow the user to switch between them seamlessly.
+
+![Branching Example](../assets/Basics_of_Generative_AI/05-context-management/branching.png)
+
+```Diagram
+
+        M1
+         |
+        M2
+       /  \
+     M3    M2'
+     |       |
+    M4      M3''
+
+```
+
+I'll attach the project for branching soon...........
 
 *Now that you understand the core strategies for managing conversation context, Let's move on to the prompt engineering techniques that can further optimize how you craft messages(system prompt) for better model performance.*
 
