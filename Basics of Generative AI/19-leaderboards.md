@@ -18,6 +18,6 @@ Track the latest model performance using popular leaderboards across reasoning, 
 
 ---
 
-**Next**: [Advanced Topics on Training and Hosting LLMs](20-fine-tuning.md)
+**Next**: [Advanced Topics on Training and Hosting LLMs](20-training-generativeai-models.md)
 
 [← Back to Index](README.md)

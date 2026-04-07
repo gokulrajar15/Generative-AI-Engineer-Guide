@@ -2,6 +2,8 @@
 
 Training modern generative AI models is not a single-step process unlike traditional machine learning models. It involves multiple stages and techniques to optimize performance, alignment, and efficiency. Below are the key stages involved:
 
+![Training Pipeline](../assets/Basics_of_Generative_AI/20-training-generativeai-models/training%20llm.gif)
+
 ---
 
 ## Stage 1: Pre-training
@@ -259,3 +261,9 @@ Evaluation ensures the model meets quality, safety, and task-specific benchmarks
 ```
 Pretrain → SFT → Reward Modeling → RLHF / DPO → Optimization → Evaluate → Deploy
 ```
+
+---
+
+**Next**: [Quantization](21-quantization.md)
+
+[← Back to Index](README.md)
