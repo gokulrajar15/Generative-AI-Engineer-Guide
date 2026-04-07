@@ -4,7 +4,7 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
 
 ## 📚 Table of Contents
 
-### Foundation (Week 1-2)
+### Foundation
 1. [**Introduction to Large Language Models**](01-introduction-to-llms.md)
    - What are LLMs and how they work
    - Open-source vs Closed-source models
@@ -25,7 +25,7 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
    - Context window, Max tokens
    - Frequency/Presence penalties
 
-### Practical Skills (Week 2-3)
+### Practical Skills
 
 5. [**Context Management**](07-context-management.md)
    - Managing conversation history
@@ -46,7 +46,8 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
    - Schema validation
    - Framework support (Pydantic, JSON Schema)
 
-### Integration (Week 3-4)
+### Integration 
+
 9. [**Function Calling**](09-function-calling.md)
    - API-based function calling
    - Framework implementations
@@ -62,7 +63,8 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
     - OpenAI real-time API
     - Low-latency implementations
 
-### Other-model (Week 4-5)
+### Other-model 
+
 12. [**Embeddings and Semantic Search**](11-embeddings-semantic-search.md)
     - Understanding embeddings and rerankers
     - Vector databases
@@ -83,7 +85,8 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
     - Video editing with AI
     - Multi-modal video understanding
 
-### Evaluation & Quality (Week 5-6)
+### Evaluation & Quality 
+
 16. [**LLM Evaluation Metrics**](16-evaluation-metrics.md)
     - Technical Metrics (Perplexity, BLEU, ROUGE)
     - Business Metrics (ROI, Customer satisfaction)
@@ -104,7 +107,7 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
     - Hugging Face, Live Bench
     - Choosing the right model
 
-### Advanced & Production (Week 6-8)  <- Optional for beginners>
+### Advanced & Production  <- Optional for beginners>
 20. [**LLM Fine-tuning (Hands-on)**](20-fine-tuning.md)
     - Pre-training and data preparation
     - Fine-tuning Techniques (PEFT, LoRA, QLoRA)

@@ -70,7 +70,7 @@ Build intelligent retrieval systems that enhance LLM responses:
 - **RAG Evaluation**: Metrics and best practices
 - **Advanced RAG**: Multi-modal RAG, agentic RAG, GraphRAG
 
-### 3️⃣ [AI Agents](03-Agentic%20AI/README.md)
+### 3️⃣ [Agentic AI](03-Agentic%20AI/README.md)
 
 Create autonomous AI agents that can reason, plan, and execute tasks:
 - **Agent Fundamentals**: Understanding agent architectures and workflows

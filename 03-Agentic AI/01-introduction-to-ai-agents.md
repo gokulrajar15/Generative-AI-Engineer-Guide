@@ -1,9 +1,6 @@
 # Introduction to AI Agents
 
-## Overview
 AI Agents are autonomous systems that can perceive their environment, make decisions, and take actions to achieve specific goals. Unlike traditional chatbots that simply respond to queries, agents can plan, use tools, maintain memory, and execute complex multi-step tasks.
-
----
 
 ## What are AI Agents?
 
@@ -20,6 +17,3 @@ Basic LLM:      Input → Processing → Output
 AI Agent:       Goal → Plan → Act → Observe → Reflect → Repeat
 ```
 
----
-
-Ready to dive deeper? Continue with [Types of AI Agents](02-types-of-ai-agents.md) to explore different agent architectures.

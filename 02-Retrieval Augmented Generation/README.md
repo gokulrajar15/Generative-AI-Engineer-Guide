@@ -17,7 +17,7 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
 
 ## 📚 Table of Contents
 
-### Foundations (Week 1-2)
+### Foundations
 
 1. **[Vector Search and Distance Metrics](01-vector-search-distance-metrics.md)**
    - Introduction to vector search and similarity
@@ -51,7 +51,7 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
 6. **[Hands on: Building a RAG System](06-building-rag-system.md)**
    - Building a simple RAG pipeline with Python
 
-### Document Processing (Week 2-3)
+### Document Processing 
 
 7. **[Document Extraction Techniques](07-document-extraction.md)**
    - PDF, DOCX, HTML, and other formats
@@ -65,7 +65,7 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
    - Image preprocessing techniques
    - Handling scanned documents and forms
 
-### Infrastructure & Optimization (Week 3-4)
+### Infrastructure & Optimization
 
 
 9. **[Optimization Strategies](09-optimization-strategies.md)**
@@ -74,7 +74,7 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
    - Sharding strategies
    - Performance tuning and cost optimization
 
-### Advanced Retrieval (Week 4-5)
+### Advanced Retrieval
 
 10. **[Retrieval Strategies](10-retrieval-strategies.md)**
    - Multi-query retrieval
@@ -89,7 +89,7 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
     - Two-stage retrieval pipelines
     - Performance optimization
 
-### Generation & Quality (Week 5-6)
+### Generation & Quality 
 
 12. **[Generation Strategies](12-generation-strategies.md)**
     - Prompt engineering for RAG
@@ -110,7 +110,7 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
     - Hallucination detection
     - End-to-end evaluation with RAGAS and DeepEval
 
-### Production & Advanced (Week 6-8)
+### Production & Advanced 
 
 15. **[RAG Architectures](15-rag-architectures.md)**
     - Basic, Modular, and Agentic RAG
