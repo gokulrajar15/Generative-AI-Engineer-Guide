@@ -1,7 +1,8 @@
-# Types of AI Agents
+# Types of AI Agents Architectures
 
 ## Overview
-AI agents come in various architectures and configurations, each suited for different use cases. Understanding these types helps you choose the right approach for your specific needs.
+
+AI agents come in various architectures and configurations, each designed to solve different types of problems. Understanding these architectural patterns is crucial for selecting the right approach for your specific use case. This guide covers the major agent types, from simple reactive systems to complex multi-agent orchestrations.
 
 ---
 
