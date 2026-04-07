@@ -42,15 +42,24 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
    - Structure-aware strategies
    - Best practices for different document types
 
+5. **[Vector Databases and Cloud Services](05-vector-databases.md)**
+   - Popular databases: Pinecone, Weaviate, Qdrant, Milvus, Chroma
+   - Cloud services: AWS OpenSearch, Azure AI Search, Vertex AI
+   - PGVector for PostgreSQL
+   - Choosing the right database for your scale
+
+6. **[Hands on: Building a RAG System](06-building-rag-system.md)**
+   - Building a simple RAG pipeline with Python
+
 ### Document Processing (Week 2-3)
 
-5. **[Document Extraction Techniques](05-document-extraction.md)**
+7. **[Document Extraction Techniques](07-document-extraction.md)**
    - PDF, DOCX, HTML, and other formats
    - Libraries: PyPDF, PyMuPDF, pdfplumber, python-docx
    - Table and layout extraction
    - Building robust extraction pipelines
 
-6. **[OCR-Based Document Extraction](06-ocr-document-extraction.md)**
+8. **[OCR-Based Document Extraction](08-ocr-document-extraction.md)**
    - Tesseract, EasyOCR, PaddleOCR
    - Cloud OCR: Google Vision, Azure, AWS Textract
    - Image preprocessing techniques
@@ -58,13 +67,8 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
 
 ### Infrastructure & Optimization (Week 3-4)
 
-7. **[Vector Databases and Cloud Services](07-vector-databases.md)**
-   - Popular databases: Pinecone, Weaviate, Qdrant, Milvus, Chroma
-   - Cloud services: AWS OpenSearch, Azure AI Search, Vertex AI
-   - PGVector for PostgreSQL
-   - Choosing the right database for your scale
 
-8. **[Optimization Strategies](08-optimization-strategies.md)**
+9. **[Optimization Strategies](09-optimization-strategies.md)**
    - Quantization techniques (Scalar, Product, Binary)
    - Multitenancy patterns
    - Sharding strategies
@@ -72,14 +76,14 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
 
 ### Advanced Retrieval (Week 4-5)
 
-9. **[Retrieval Strategies](09-retrieval-strategies.md)**
+10. **[Retrieval Strategies](10-retrieval-strategies.md)**
    - Multi-query retrieval
    - Hypothetical Document Embeddings (HyDE)
    - Parent document retrieval
    - Contextual compression
    - Hybrid search (vector + keyword)
 
-10. **[Reranker Models](10-reranker-models.md)**
+11. **[Reranker Models](11-reranker-models.md)**
     - Cross-encoders vs. bi-encoders
     - Cohere Rerank, BGE Reranker, Jina
     - Two-stage retrieval pipelines
@@ -87,20 +91,20 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
 
 ### Generation & Quality (Week 5-6)
 
-11. **[Generation Strategies](11-generation-strategies.md)**
+12. **[Generation Strategies](12-generation-strategies.md)**
     - Prompt engineering for RAG
     - Chain of Thought reasoning
     - Iterative refinement (Self-RAG, FLARE)
     - Citation and fact-checking
     - Handling edge cases
 
-12. **[Multimodal Vector Search](12-multimodal-vector-search.md)**
+13. **[Multimodal Vector Search](13-multimodal-vector-search.md)**
     - CLIP and SigLIP for image-text search
     - ImageBind for multi-modal embeddings
     - ColPali for document understanding
     - Building multimodal RAG systems
 
-13. **[Evaluation Metrics](13-evaluation-metrics.md)**
+14. **[Evaluation Metrics](14-evaluation-metrics.md)**
     - Retrieval metrics: Precision@K, Recall@K, NDCG, MRR
     - Generation metrics: Faithfulness, Answer relevancy
     - Hallucination detection
@@ -108,27 +112,27 @@ In simple terms, RAG uses external knowledge sources to supplement the LLM's cap
 
 ### Production & Advanced (Week 6-8)
 
-14. **[RAG Architectures](14-rag-architectures.md)**
+15. **[RAG Architectures](15-rag-architectures.md)**
     - Basic, Modular, and Agentic RAG
     - Multi-stage and Corrective RAG (CRAG)
     - GraphRAG and Hierarchical RAG
     - Conversational and Production patterns
 
-15. **[Caching Strategies](15-caching.md)**
+16. **[Caching Strategies](16-caching.md)**
     - Query result caching
     - Embedding cache
     - Semantic cache
     - Multi-level caching with Redis
     - Cache invalidation strategies
 
-16. **[Graph Databases](16-graph-databases.md)**
+17. **[Graph Databases](17-graph-databases.md)**
     - Neo4j, Amazon Neptune, ArangoDB
     - Knowledge graph construction
     - Entity and relationship extraction
     - Hybrid vector + graph retrieval
     - Microsoft GraphRAG approach
 
-17. **[Vectorless RAG](17-vectorless-rag.md)**
+18. **[Vectorless RAG](18-vectorless-rag.md)**
     - BM25 and TF-IDF retrieval
     - Elasticsearch full-text search
     - PageIndex approach

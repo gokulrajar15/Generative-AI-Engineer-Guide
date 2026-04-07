@@ -32,10 +32,9 @@ The most common type where every dimension has a non-zero value.
 **Popular models:**
 - **OpenAI text-embedding-3-small/large**
 - **Sentence Transformers** (all-MiniLM-L6-v2, all-mpnet-base-v2)
-- **E5** (e5-small, e5-base, e5-large)
-- **BGE** (BAAI/bge-small-en, bge-base-en, bge-large-en)
-- **Cohere embed-v3**
-- **Google text-embedding-gecko**
+- **Google text-embedding**
+
+[Embedding models](../01-Basics%20of%20Generative%20AI/12-embeddings-semantic-search.md)
 
 **Use cases:**
 - Semantic search
@@ -114,168 +113,56 @@ Models that delay the interaction between query and document vectors.
 
 ---
 
-## Choosing an Embedding Model
+## Choosing the Right Embedding Model
 
-### Factors to consider:
+<table>
+	<thead>
+		<tr>
+			<th>Considerations</th>
+			<th>Dense Embeddings</th>
+			<th>Sparse Embeddings</th>
+			<th>Late Interaction Models</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><b>Accuracy</b></td>
+			<td>Good</td>
+			<td>Better for keyword matching</td>
+			<td>Best for fine-grained semantics</td>
+		</tr>
+		<tr>
+			<td><b>Storage</b></td>
+			<td>Compact (1 vector/doc)</td>
+			<td>Larger (sparse format)</td>
+			<td>Largest (multiple vectors/doc)</td>
+		</tr>
+		<tr>
+			<td><b>Inference Speed</b></td>
+			<td>Fast</td>
+			<td>Fast</td>
+			<td>Slower</td>
+		</tr>
+		<tr>
+			<td><b>Use Cases</b></td>
+			<td>General RAG, semantic search</td>
+			<td>Legal/medical, hybrid search</td>
+			<td>High-accuracy retrieval, multimodal</td>
+		</tr>
+		<tr>
+			<td><b>Complexity</b></td>
+			<td>Simple</td>
+			<td>Moderate</td>
+			<td>Complex</td>
+		</tr>
+	</tbody>
+</table>
 
-1. **Quality metrics:**
-   - MTEB (Massive Text Embedding Benchmark) scores
-   - Domain-specific evaluation
-
-2. **Dimensionality:**
-   - Lower (384): Faster, less storage
-   - Higher (1536): More accurate, more expensive
-
-3. **Model size:**
-   - Smaller: Faster inference, lower cost
-   - Larger: Better quality
-
-4. **Language support:**
-   - Multilingual vs. English-only
-   - Domain-specific (code, medical, legal)
-
-5. **Licensing:**
-   - Open source vs. proprietary
-   - Commercial use restrictions
-
-6. **Cost:**
-   - API-based (per token)
-   - Self-hosted (infrastructure)
-
----
-
-## Popular Embedding Models
-
-### **Open Source Models:**
-
-| Model | Dimensions | Best For |
-|-------|-----------|----------|
-| all-MiniLM-L6-v2 | 384 | Fast, efficient |
-| all-mpnet-base-v2 | 768 | Balanced quality |
-| bge-large-en-v1.5 | 1024 | High quality |
-| e5-large-v2 | 1024 | Instruction-following |
-| jina-embeddings-v2 | 768 | Long context (8K) |
-
-### **Commercial APIs:**
-
-| Provider | Model | Dimensions | Notes |
-|----------|-------|-----------|-------|
-| OpenAI | text-embedding-3-large | 3072 | Adjustable dimensions |
-| Cohere | embed-v3 | 1024 | Multiple languages |
-| Google | text-embedding-gecko | 768 | Multimodal support |
-| Anthropic | Voyage AI | 1024 | Domain-specific |
 
 ---
 
-## Hands-On: Using Embedding Models
+*This is very cruicial for RAG systems. The choice of embedding model can significantly impact retrieval quality, latency, and storage requirements. In the next section, we'll explore about chunks and how to create them effectively for better retrieval performance.*
 
-### With Sentence Transformers:
-```python
-from sentence_transformers import SentenceTransformer
+**Next**: [Model used for vector search →](03-embedding-models.md)
 
-# Load model
-model = SentenceTransformer('all-MiniLM-L6-v2')
-
-# Create embeddings
-texts = [
-    "What is machine learning?",
-    "Machine learning is a subset of AI",
-    "I love pizza"
-]
-embeddings = model.encode(texts)
-
-print(f"Shape: {embeddings.shape}")  # (3, 384)
-
-# Compute similarity
-from sklearn.metrics.pairwise import cosine_similarity
-similarities = cosine_similarity(embeddings)
-print(similarities)
-```
-
-### With OpenAI API:
-```python
-from openai import OpenAI
-
-client = OpenAI()
-
-response = client.embeddings.create(
-    model="text-embedding-3-small",
-    input="Your text here"
-)
-
-embedding = response.data[0].embedding
-print(f"Dimensions: {len(embedding)}")
-```
-
-### With Hugging Face:
-```python
-from transformers import AutoTokenizer, AutoModel
-import torch
-
-tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-base-en-v1.5')
-model = AutoModel.from_pretrained('BAAI/bge-base-en-v1.5')
-
-texts = ["Sample text for embedding"]
-encoded_input = tokenizer(texts, padding=True, truncation=True, return_tensors='pt')
-
-with torch.no_grad():
-    model_output = model(**encoded_input)
-    embeddings = model_output[0][:, 0]  # CLS token
-
-print(embeddings.shape)
-```
-
----
-
-## Best Practices
-
-1. **Normalization:**
-   - Normalize embeddings for cosine similarity
-   - Check model documentation
-
-2. **Batch processing:**
-   - Process multiple texts together
-   - Improves efficiency
-
-3. **Caching:**
-   - Cache embeddings for frequently accessed documents
-   - Reduces API costs
-
-4. **Version control:**
-   - Track embedding model versions
-   - Re-embed when upgrading models
-
-5. **Evaluation:**
-   - Test on your specific domain
-   - Don't rely solely on benchmark scores
-
-6. **Hybrid approaches:**
-   - Combine dense + sparse for better results
-   - Use rerankers for final refinement
-
----
-
-## Advanced Topics
-
-### **Matryoshka Embeddings:**
-- Variable dimension embeddings
-- Truncate dimensions as needed
-- Trade accuracy for efficiency
-
-### **Multi-vector representations:**
-- Multiple embeddings per document
-- Context-aware retrieval
-- Better for long documents
-
-### **Domain adaptation:**
-- Fine-tune on domain-specific data
-- Transfer learning approaches
-- Contrastive learning
-
----
-
-## Next Steps
-- Benchmark models on your data
-- Implement hybrid search (dense + sparse)
-- Explore late interaction models
-- Learn about reranking models
+[← Back to Index](README.md)

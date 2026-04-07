@@ -16,127 +16,12 @@ Naive approaches like comparing every vector pair (brute force) don't scale:
 
 ## Key Vector Search Algorithms
 
-### 1. **HNSW (Hierarchical Navigable Small World)**
+- **HNSW (Hierarchical Navigable Small World)**: Graph-based, fast search with high recall
+- **IVF (Inverted File Index)**: Clusters vectors and searches within relevant clusters
+- **PQ (Product Quantization)**: Compresses vectors for memory efficiency
+- **LSH (Locality-Sensitive Hashing)**: Hashes similar items to the same bucket
+- **Flat (Brute Force)**: Exact search, only for small datasets
 
-One of the most popular and efficient algorithms for vector search.
-
-**How it works:**
-- Creates a multi-layer graph structure
-- Top layers have long-range connections (highways)
-- Bottom layers have short-range connections (local streets)
-- Search starts at the top and navigates down
-
-**Advantages:**
-- Excellent recall and speed balance
-- Good for high-dimensional data
-- Scales well to millions of vectors
-
-**Disadvantages:**
-- Higher memory usage
-- More complex implementation
-- Build time can be significant
-
-**Use cases:**
-- Real-time semantic search
-- Recommendation systems
-- Image similarity search
-
-[Learn more about HNSW](https://www.pinecone.io/learn/vector-database/)
-
----
-
-### 2. **IVF (Inverted File Index)**
-
-A clustering-based approach that divides the vector space into regions.
-
-**How it works:**
-- Vectors are clustered using k-means or similar
-- Each cluster has a centroid
-- Search first finds nearest centroids
-- Then searches within those clusters only
-
-**Advantages:**
-- Lower memory footprint
-- Fast search with proper tuning
-- Good for very large datasets
-
-**Disadvantages:**
-- Requires tuning (nprobe parameter)
-- Build time for clustering
-- May miss vectors near cluster boundaries
-
-**Variants:**
-- IVF-Flat: Stores full vectors
-- IVF-PQ: Uses product quantization for compression
-
----
-
-### 3. **Product Quantization (PQ)**
-
-A compression technique often combined with other algorithms.
-
-**How it works:**
-- Splits vectors into sub-vectors
-- Quantizes each sub-vector separately
-- Stores compact codes instead of full vectors
-- Enables searching compressed data
-
-**Advantages:**
-- Massive memory savings (10-100x compression)
-- Faster search due to smaller data
-- Can be combined with IVF or HNSW
-
-**Disadvantages:**
-- Lossy compression (accuracy trade-off)
-- More complex implementation
-
----
-
-### 4. **LSH (Locality-Sensitive Hashing)**
-
-Uses hash functions that preserve similarity.
-
-**How it works:**
-- Hash similar vectors to same buckets
-- Multiple hash functions for better recall
-- Search only within relevant buckets
-
-**Advantages:**
-- Simple concept
-- Good for certain distance metrics
-- Scalable
-
-**Disadvantages:**
-- Lower accuracy than HNSW
-- Requires careful tuning
-- Multiple tables needed
-
----
-
-### 5. **FAISS (Facebook AI Similarity Search)**
-
-A library implementing multiple algorithms.
-
-**Supported approaches:**
-- Flat (brute force)
-- IVF variants
-- HNSW
-- PQ and combinations
-
-**Use case:** Research and experimentation with different algorithms
-
----
-
-### 6. **ScaNN (Scalable Nearest Neighbors)**
-
-Google's algorithm optimizing speed and accuracy.
-
-**Key features:**
-- Advanced quantization techniques
-- Optimized for TPU/GPU
-- State-of-the-art performance on benchmarks
-
----
 
 ## Algorithm Comparison
 
@@ -166,67 +51,15 @@ Google's algorithm optimizing speed and accuracy.
 - **Memory limited**: PQ-based methods
 - **Highest accuracy**: HNSW with high parameters
 
----
 
-## Hands-On with FAISS
 
-```python
-import faiss
-import numpy as np
+[Learn more about algorithms](https://www.pinecone.io/learn/vector-database/)  <---- Great resource with detailed explanations and comparisons!
 
-# Generate sample data
-d = 128  # dimension
-n = 10000  # number of vectors
-np.random.seed(42)
-vectors = np.random.random((n, d)).astype('float32')
-query = np.random.random((1, d)).astype('float32')
-
-# 1. Flat index (brute force)
-index_flat = faiss.IndexFlatL2(d)
-index_flat.add(vectors)
-D, I = index_flat.search(query, k=5)
-print("Flat search results:", I)
-
-# 2. IVF index
-nlist = 100  # number of clusters
-quantizer = faiss.IndexFlatL2(d)
-index_ivf = faiss.IndexIVFFlat(quantizer, d, nlist)
-index_ivf.train(vectors)
-index_ivf.add(vectors)
-index_ivf.nprobe = 10  # search 10 clusters
-D, I = index_ivf.search(query, k=5)
-print("IVF search results:", I)
-
-# 3. HNSW index
-index_hnsw = faiss.IndexHNSWFlat(d, 32)  # 32 connections per layer
-index_hnsw.add(vectors)
-D, I = index_hnsw.search(query, k=5)
-print("HNSW search results:", I)
-```
 
 ---
 
-## Performance Optimization
+*Hope you get a good grasp of vector search and distance metrics! These concepts are fundamental for building effective RAG systems. In the next section, we'll explore different vector search algorithms.*
 
-**Index building:**
-- Use GPU for faster index construction
-- Parallelize when possible
-- Tune algorithm parameters
+**Next**: [Model used for vector search →](03-embedding-models.md)
 
-**Search optimization:**
-- Batch queries together
-- Use appropriate nprobe/ef_search values
-- Consider quantization for speed
-
-**Monitoring:**
-- Track recall@k metrics
-- Measure latency percentiles (p50, p95, p99)
-- Monitor memory usage
-
----
-
-## Next Steps
-- Experiment with different algorithms
-- Benchmark on your specific data
-- Learn about vector databases that implement these algorithms
-- Explore hybrid search combining multiple approaches
+[← Back to Index](README.md)
