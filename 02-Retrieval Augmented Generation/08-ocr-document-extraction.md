@@ -1,9 +1,8 @@
 # OCR-Based Document Extraction
 
-## Overview
 Optical Character Recognition (OCR) converts images and scanned documents into machine-readable text. Essential for processing scanned PDFs, images, and handwritten documents in RAG systems.
 
----
+![OCR Document Extraction](../assets/Retrieval%20Augmented%20Generation/08-ocr-document-extraction/ocr.png)
 
 ## What is OCR?
 

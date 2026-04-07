@@ -1,9 +1,8 @@
 # Vectorless RAG
 
-## Overview
 Vectorless RAG is an alternative approach to traditional vector-based retrieval that uses different methods for document indexing and search. While vector embeddings have become the standard, vectorless approaches offer unique advantages in specific scenarios, particularly for complex professional documents that require reasoning and explainability.
 
----
+![Vectorless RAG Architecture](../assets/Retrieval%20Augmented%20Generation/17-vectorless-rag/page_index.png)
 
 ## What is Vectorless RAG?
 
@@ -15,7 +14,6 @@ Vectorless RAG is an alternative approach to traditional vector-based retrieval 
 
 **Key difference:** No embeddings or vector similarity computations. Instead, uses document structure, reasoning, and alternative indexing methods.
 
----
 
 ## Why Consider Vectorless RAG?
 
@@ -35,7 +33,6 @@ Vectorless RAG is an alternative approach to traditional vector-based retrieval 
 3. **No out-of-vocabulary handling**: Exact term matching in traditional methods
 4. **Less flexible**: Traditional keyword methods can't capture nuanced similarity
 
----
 
 ## Types of Vectorless RAG
 
@@ -52,7 +49,6 @@ Vectorless RAG is an alternative approach to traditional vector-based retrieval 
 - No ML models required
 - Limited semantic understanding
 
----
 
 ### 2. **Reasoning-Based Methods (Modern Approach)**
 
@@ -60,7 +56,6 @@ Vectorless RAG is an alternative approach to traditional vector-based retrieval 
 
 **Key innovation:** Uses LLM reasoning to navigate document structure, mimicking how humans find information.
 
----
 
 ## PageIndex: Reasoning-Based Vectorless RAG
 
@@ -133,7 +128,6 @@ Vectorless RAG is an alternative approach to traditional vector-based retrieval 
   </tbody>
 </table>
 
----
 
 ## When to Use Vectorless RAG
 

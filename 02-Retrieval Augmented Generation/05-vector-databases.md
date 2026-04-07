@@ -1,9 +1,9 @@
 # Vector Databases and Cloud-Based Services
 
-## Overview
 Vector databases are specialized storage systems optimized for storing, indexing, and querying high-dimensional vector embeddings. Essential infrastructure for production RAG systems.
 
----
+![Vector Databases](../assets/Retrieval%20Augmented%20Generation/05-vector-databases/vector_databases.png)
+
 
 ## What is a Vector Database?
 
@@ -23,9 +23,10 @@ Vector databases are specialized storage systems optimized for storing, indexing
 
 - **Qdrant**: Open-source, scalable, supports hybrid search
 - **Milvus**: Open-source, high performance, distributed
-- **Pinecone**: Fully managed, scalable, easy to use
+- **Chroma**: Open-source, designed for LLM applications
 - **Weaviate**: Open-source, graph-based, hybrid search
 - **Vespa**: Open-source, real-time search and analytics
+- **Pinecone**: Fully managed, scalable, easy to use
 - **Redis Vector Search**: In-memory, fast, simple
 
 Most of the sql and nosql databases now also support vector search capabilities:
@@ -38,6 +39,6 @@ Nowadays, many cloud providers also offer vector database services:
 - **Google Vertex AI**:  RAG Engine with integrated vector search and Vector Search.
 
 
-**Next**: [Hands-on building RAG with Vector Databases →](06-vector-database-tutorial.md)
+**Next**: [Hands-on building RAG with Vector Databases →](06-building-rag-system.md)
 
 [← Back to Index](README.md)

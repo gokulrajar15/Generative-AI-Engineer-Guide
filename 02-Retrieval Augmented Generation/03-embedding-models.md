@@ -1,9 +1,9 @@
 # Embedding Models
 
-## Overview
 Embedding models transform text, images, or other data into dense vector representations that capture semantic meaning. These embeddings are the foundation of modern RAG systems.
 
----
+![Embedding Models](../assets/Retrieval%20Augmented%20Generation/03-embedding-models/embeddings.png)
+
 
 ## What are Embeddings?
 
@@ -14,8 +14,6 @@ Embedding models transform text, images, or other data into dense vector represe
 - Capture semantic meaning, not just keywords
 - Enable mathematical operations (similarity, arithmetic)
 - Language and domain-specific patterns
-
----
 
 ## Types of Embedding Models
 

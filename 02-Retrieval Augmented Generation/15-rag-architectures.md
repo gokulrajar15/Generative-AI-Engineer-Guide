@@ -1,9 +1,8 @@
 # RAG Architectures
 
-## Overview
 RAG architectures vary based on use cases, scale, and complexity requirements. This chapter covers different architectural patterns for building production RAG systems.
 
----
+![RAG Architectures](../assets/Retrieval%20Augmented%20Generation/15-rag-architectures/rag_architechture.png)
 
 ## Basic RAG Architecture
 
@@ -50,7 +49,6 @@ Breaks RAG into independent, swappable components.
 
 **Use when:** Building production systems that need flexibility and maintainability.
 
----
 
 ### **2. Agentic RAG**
 LLM acts as an agent that decides when and how to retrieve information.
@@ -70,7 +68,6 @@ LLM acts as an agent that decides when and how to retrieve information.
 
 **Use when:** Queries require multiple steps or external tool usage.
 
----
 
 ### **3. Multi-Stage RAG**
 Performs retrieval in multiple passes to refine results.
@@ -88,7 +85,6 @@ Performs retrieval in multiple passes to refine results.
 
 **Use when:** Accuracy is critical and you can afford extra latency.
 
----
 
 ### **4. Corrective RAG (CRAG)**
 Self-correcting RAG with built-in quality checks.
@@ -107,7 +103,6 @@ Self-correcting RAG with built-in quality checks.
 
 **Use when:** You need reliable answers even when internal knowledge is incomplete.
 
----
 
 ### **5. GraphRAG**
 Uses knowledge graphs to understand relationships between entities.
@@ -125,7 +120,6 @@ Uses knowledge graphs to understand relationships between entities.
 
 **Use when:** Your domain has rich entity relationships (legal, medical, corporate knowledge).
 
----
 
 ### **6. Hierarchical RAG**
 Organizes documents in a multi-level structure (summaries → sections → chunks).
@@ -143,7 +137,6 @@ Organizes documents in a multi-level structure (summaries → sections → chunk
 
 **Use when:** Working with large structured documents (reports, manuals, books).
 
----
 
 ### **7. Routing RAG**
 Routes queries to specialized retrievers based on intent.
@@ -163,7 +156,7 @@ Routes queries to specialized retrievers based on intent.
 
 **Use when:** You have diverse content types requiring different retrieval strategies.
 
----
+
 
 ### **8. Conversational RAG**
 Maintains conversation history for multi-turn dialogues.
@@ -182,7 +175,6 @@ Maintains conversation history for multi-turn dialogues.
 
 **Use when:** Building chatbots or assistants with ongoing conversations.
 
----
 
 ## Hybrid Architectures
 
@@ -201,7 +193,6 @@ Real-world systems often combine architectures for better results.
 
 **Key principle:** Layer architectures to get benefits of each approach.
 
----
 
 ## Choosing an Architecture
 
@@ -217,7 +208,6 @@ Real-world systems often combine architectures for better results.
 | Large document collections | Hierarchical RAG |
 | Incomplete knowledge base | Corrective RAG (CRAG) |
 
----
 
 ## Best Practices
 

@@ -1,9 +1,8 @@
 # Optimization Strategies for Vector Database Indexing
 
-## Overview
 Optimizing vector database indexing is crucial for balancing performance, accuracy, cost, and scalability in production RAG systems. This chapter covers techniques to maximize efficiency.
 
----
+![Optimization Strategies](../assets/Retrieval%20Augmented%20Generation/09-optimization-strategies/quantization.png)
 
 ## Key Performance Metrics
 
@@ -32,8 +31,6 @@ Optimizing vector database indexing is crucial for balancing performance, accura
 - Important for dynamic updates
 - Batch vs. incremental
 
----
-
 ## Quantization
 
 **Definition:** Compressing vector representations to use less memory and compute.
@@ -54,7 +51,6 @@ Convert float32 to int8 (4x compression).
 - Some precision loss
 - Not always enough compression
 
----
 
 #### **2. Product Quantization (PQ)**
 
@@ -80,7 +76,6 @@ Divide vectors into subvectors and quantize each separately.
 - Requires training
 - Limited precision
 
----
 
 #### **3. Binary Quantization**
 
@@ -97,8 +92,6 @@ Use 1 bit per dimension (sign only).
 - Only suitable for certain embeddings
 - Limited use cases
 
----
-
 ### **Quantization Comparison:**
 
 | Method | Compression | Accuracy Loss | Speed | Use Case |
@@ -107,8 +100,6 @@ Use 1 bit per dimension (sign only).
 | Scalar Quantization | 4x | 1-2% | 2-3x | Balanced |
 | Product Quantization | 10-100x | 5-10% | Similar | Large scale |
 | Binary | 32x | 15-20% | Very fast | Speed critical |
-
----
 
 
 ## Sharding and Partitioning
@@ -147,7 +138,6 @@ Use 1 bit per dimension (sign only).
    - Scheduled scaling
    - Serverless options
 
----
 
 ## Best Practices Summary
 

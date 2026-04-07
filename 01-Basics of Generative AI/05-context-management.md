@@ -208,22 +208,6 @@ You need a strategy to **keep context small without losing important information
 
 Keep only the **last N turns** of conversation. Older messages are dropped entirely.
 
-### How it works
-
-```python
-MAX_TURNS = 10  # keep last 10 turns (5 user + 5 assistant)
-
-def build_messages(system_prompt, history, new_user_message):
-    # Always keep system prompt
-    messages = [{"role": "system", "content": system_prompt}]
-
-    # Trim history to last N turns
-    trimmed = history[-MAX_TURNS:]
-
-    messages.extend(trimmed)
-    messages.append({"role": "user", "content": new_user_message})
-    return messages
-```
 
 ### Example
 
@@ -262,39 +246,6 @@ Step 2: History hits a threshold (e.g., 20 turns).
 Step 3: Take the oldest 10 turns → ask model to summarize them.
 Step 4: Replace those 10 turns with 1 summary message.
 Step 5: Continue the conversation with [system, summary, recent turns].
-```
-
-### Code Example
-
-```python
-def summarize_old_turns(old_turns: list) -> str:
-    """Ask the model to compress old turns into a summary."""
-    summary_prompt = [
-        {"role": "system", "content": "Summarize the following conversation history concisely."},
-        {"role": "user",   "content": str(old_turns)}
-    ]
-    response = client.chat.completions.create(
-        model="gpt-5.4-mini",
-        messages=summary_prompt
-    )
-    return response.choices[0].message.content
-
-
-def manage_history(history: list, threshold=20, keep_recent=10):
-    if len(history) > threshold:
-        old_turns   = history[:-keep_recent]   # older half
-        recent_turns = history[-keep_recent:]  # recent half
-
-        summary_text = summarize_old_turns(old_turns)
-
-        # Replace old turns with a single summary message
-        summary_message = {
-            "role": "assistant",
-            "content": f"[Summary of earlier conversation]: {summary_text}"
-        }
-        return [summary_message] + recent_turns
-
-    return history
 ```
 
 ### Visual
@@ -339,62 +290,6 @@ Step 2: When the user sends a new message, embed it.
 Step 3: Search the vector DB for the top-K most similar past turns.
 Step 4: Inject only those relevant turns into the messages array.
 Step 5: Send to the model.
-```
-
-### Code Example
-
-```python
-from openai import OpenAI
-import numpy as np
-
-client = OpenAI(api_key="your_api_key")
-
-# Simple in-memory vector store (use Pinecone/Chroma/Qdrant in production)
-vector_store = []  # list of {"text": ..., "embedding": ..., "role": ...}
-
-def embed(text: str) -> list:
-    response = client.embeddings.create(
-        model="text-embedding-3-small",
-        input=text
-    )
-    return response.data[0].embedding
-
-def cosine_similarity(a, b):
-    a, b = np.array(a), np.array(b)
-    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
-
-def store_turn(role: str, content: str):
-    vector_store.append({
-        "role": role,
-        "content": content,
-        "embedding": embed(content)
-    })
-
-def retrieve_relevant(query: str, top_k=4) -> list:
-    query_embedding = embed(query)
-    scored = [
-        (cosine_similarity(query_embedding, item["embedding"]), item)
-        for item in vector_store
-    ]
-    scored.sort(reverse=True, key=lambda x: x[0])
-    return [item for _, item in scored[:top_k]]
-
-def chat(system_prompt: str, user_message: str) -> str:
-    # Retrieve relevant past turns
-    relevant_history = retrieve_relevant(user_message, top_k=4)
-
-    messages = [{"role": "system", "content": system_prompt}]
-    for turn in relevant_history:
-        messages.append({"role": turn["role"], "content": turn["content"]})
-    messages.append({"role": "user", "content": user_message})
-
-    response = client.chat.completions.create(model="gpt-5.4-mini", messages=messages)
-    reply = response.choices[0].message.content
-
-    # Store both turns
-    store_turn("user", user_message)
-    store_turn("assistant", reply)
-    return reply
 ```
 
 ### Visual
@@ -447,77 +342,6 @@ Step 2: Store them in a persistent database (SQL, Redis, or a vector DB).
 Step 3: At the start of every new session, load relevant memories.
 Step 4: Inject them into the system prompt or as context messages.
 Step 5: Model responds as if it "remembers" the user.
-```
-
-### Code Example
-
-```python
-import json
-import redis
-from openai import OpenAI
-
-client = OpenAI(api_key="your_api_key")
-memory_db = redis.Redis(host="localhost", port=6379, decode_responses=True)
-
-# ── Step 1: Extract facts from the conversation ──────────────────────────────
-def extract_memories(conversation: list) -> dict:
-    """Ask model to pull out key facts worth remembering."""
-    extraction_prompt = f"""
-    Extract key facts from this conversation that are worth remembering long-term.
-    Return only a JSON object with keys like: name, goals, preferences, decisions, stack.
-
-    Conversation:
-    {json.dumps(conversation, indent=2)}
-    """
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": extraction_prompt}]
-    )
-    raw = response.choices[0].message.content
-    return json.loads(raw)
-
-# ── Step 2: Save to persistent store ─────────────────────────────────────────
-def save_memories(user_id: str, memories: dict):
-    key = f"memory:{user_id}"
-    existing = json.loads(memory_db.get(key) or "{}")
-    existing.update(memories)           # merge new facts with old
-    memory_db.set(key, json.dumps(existing))
-
-# ── Step 3: Load on next session ─────────────────────────────────────────────
-def load_memories(user_id: str) -> dict:
-    key = f"memory:{user_id}"
-    raw = memory_db.get(key)
-    return json.loads(raw) if raw else {}
-
-# ── Step 4: Inject into system prompt ────────────────────────────────────────
-def build_system_prompt(user_id: str) -> str:
-    memories = load_memories(user_id)
-    if not memories:
-        return "You are a helpful assistant."
-
-    return f"""You are a helpful assistant.
-
-Here is what you remember about this user from previous sessions:
-{json.dumps(memories, indent=2)}
-
-Use this context naturally — don't announce that you remember things, just act on it."""
-
-# ── Step 5: Full chat flow ────────────────────────────────────────────────────
-def chat(user_id: str, user_message: str, history: list) -> str:
-    system_prompt = build_system_prompt(user_id)
-
-    messages = [{"role": "system", "content": system_prompt}]
-    messages.extend(history[-10:])   # rolling window for current session
-    messages.append({"role": "user", "content": user_message})
-
-    response = client.chat.completions.create(model="gpt-4o", messages=messages)
-    return response.choices[0].message.content
-
-# ── After session ends: extract and save ─────────────────────────────────────
-def end_session(user_id: str, full_conversation: list):
-    memories = extract_memories(full_conversation)
-    save_memories(user_id, memories)
-    print(f"Saved memories for {user_id}: {memories}")
 ```
 
 ### Visual

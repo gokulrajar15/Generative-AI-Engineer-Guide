@@ -1,9 +1,8 @@
 # Chunking Strategies
 
-## Overview
 Chunking is the process of breaking down large documents into smaller, manageable pieces for indexing and retrieval in RAG systems. Proper chunking is critical for retrieval quality.
 
----
+![Chunking Visualization](../assets/Retrieval%20Augmented%20Generation/04-chunking-strategies/chunking.png)
 
 ## Why Chunking Matters
 
@@ -19,7 +18,6 @@ Chunking is the process of breaking down large documents into smaller, manageabl
 - Optimize for retrieval relevance
 - Balance context and specificity
 
----
 
 ## Key Chunking Parameters
 

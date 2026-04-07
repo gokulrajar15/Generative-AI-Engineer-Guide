@@ -1,10 +1,8 @@
 # Retrieval Strategies
 
-## Overview
 Retrieval strategies determine how relevant documents are found and selected for the generation step in RAG systems. Advanced retrieval techniques can significantly improve answer quality.
 
----
-
+![Retrieval Strategies](../assets/Retrieval%20Augmented%20Generation/10-retrieval-strategies/multi_query_retriver.png)
 
 ## Basic Retrieval
 
@@ -21,7 +19,6 @@ The simplest approach: embed query, find nearest neighbors.
 - Single perspective
 - No query refinement
 
----
 
 ## Advanced Retrieval Strategies
 
@@ -39,7 +36,6 @@ Generate multiple variations of the query to improve coverage.
 - Slower
 - Deduplication needed
 
----
 
 ### **2. Decomposition (Sub-Query) Retrieval**
 
@@ -63,8 +59,6 @@ Break complex questions into simpler sub-questions.
 - May retrieve irrelevant sub-answers
 - More tokens for generation
 
----
-
 ### **3. Hypothetical Document Embeddings (HyDE)**
 
 Generate a hypothetical answer, then search for similar documents.
@@ -84,8 +78,6 @@ Generate a hypothetical answer, then search for similar documents.
 - Hallucination risk
 - Slower
 
----
-
 ### **4. Parent Document Retrieval**
 
 Retrieve small chunks but return larger parent documents.
@@ -99,8 +91,6 @@ Retrieve small chunks but return larger parent documents.
 - More tokens (longer context)
 - May include irrelevant parts
 - Implementation complexity
-
----
 
 ### **5. Contextual Compression Retrieval**
 
@@ -116,8 +106,6 @@ Retrieve documents then compress/filter to most relevant parts.
 - May lose context
 - Slower and more expensive
 
----
-
 ### **6. Ensemble Retrieval**
 
 Combine multiple retrieval methods.
@@ -132,18 +120,20 @@ Combine multiple retrieval methods.
 - Slower (multiple searches)
 - Need to tune combination weights
 
----
-
 ## Hybrid Search Strategies
 
 ### **Combining Dense + Sparse Retrieval:**
 
----
+Using both vector similarity and keyword-based search to improve recall and precision.
 
-## Query Routing
+**Pros:**
+- Better coverage
+- Handles both semantic and exact matches
+**Cons:**
+- More complex
+- Slower
+- More expensive
 
-Route different types of queries to different retrievers.
----
 
 ## Best Practices
 

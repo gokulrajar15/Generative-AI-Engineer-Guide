@@ -1,6 +1,5 @@
 # Reranker Models
 
-## Overview
 Rerankers are models that refine initial retrieval results by re-scoring documents based on their relevance to the query. They provide a second stage of ranking that can significantly improve RAG quality.
 
 ---

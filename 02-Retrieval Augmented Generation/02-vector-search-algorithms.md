@@ -1,7 +1,8 @@
 # Algorithms Behind Vector Search Engines
 
-## Overview
 Vector search algorithms enable efficient similarity search in high-dimensional spaces. Understanding these algorithms is essential for building scalable RAG systems.
+
+![HSNW Visualization](../assets/Retrieval%20Augmented%20Generation/02-vector-search-algorithms/hsnw.png)
 
 ---
 

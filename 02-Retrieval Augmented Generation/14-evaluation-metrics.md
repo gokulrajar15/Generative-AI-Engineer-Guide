@@ -1,9 +1,8 @@
 # Evaluation Metrics in RAG
 
-## Overview
 Evaluating RAG systems is crucial for measuring quality, identifying weaknesses, and tracking improvements. This chapter covers metrics for both retrieval and generation components.
 
----
+![Evaluation Metrics](../assets/Retrieval%20Augmented%20Generation/14-evaluation-metrics/evaluation_metrics.png)
 
 ## Why Evaluate RAG?
 
@@ -19,7 +18,6 @@ Evaluating RAG systems is crucial for measuring quality, identifying weaknesses,
 - Detect hallucinations
 - Track system performance
 
----
 
 ## Retrieval Metrics(Quantitative)
 

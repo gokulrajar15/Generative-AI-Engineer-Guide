@@ -1,9 +1,8 @@
 # Document Extraction Techniques
 
-## Overview
 Document extraction is the process of converting various document formats (PDF, DOCX, HTML, etc.) into clean text or structured data for RAG systems. Quality extraction is critical for downstream retrieval and generation.
 
----
+![Document Extraction](../assets/Retrieval%20Augmented%20Generation/07-document-extraction/document_extraction.png)
 
 ## Why Document Extraction Matters
 
@@ -23,10 +22,8 @@ In real-world applications, documents come in many formats(PDF, DOCX, HTML, TXT,
 - Extract metadata (author, date, title)
 - Maintain performance at scale
 
----
-
 ## This is a hands-on tutorial that will be added soon! Stay tuned for a practical guide on document extraction techniques, covering tools and libraries for handling various formats, strategies for preserving structure, and tips for optimizing extraction quality for RAG systems.
 
-[← Previous: Building a RAG System](06-building-rag-system.md) | [OCR based document extraction →](08-ocr-document-extraction.md)
+[← Previous: Building a RAG System](06-building-rag-system.md) | [-> Next: OCR based document extraction →](08-ocr-document-extraction.md)
 
 [← Back to Index](README.md)

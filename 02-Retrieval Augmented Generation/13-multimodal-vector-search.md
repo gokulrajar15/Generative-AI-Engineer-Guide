@@ -1,9 +1,8 @@
 # Multimodal Vector Search
 
-## Overview
 Multimodal vector search enables retrieving and searching across different data types (text, images, audio, video) in a unified vector space. Essential for modern AI applications handling diverse content types.
 
----
+![Multimodal Search](../assets/Retrieval%20Augmented%20Generation/13-multimodal-vector-search/multi_model_embedding.png)
 
 ## What is Multimodal Search?
 
@@ -17,7 +16,6 @@ Multimodal vector search enables retrieving and searching across different data 
 - Audio query → Find matching text or video
 - Text → Video frames
 
----
 
 ## This is a hands-on tutorial that will be added soon! Stay tuned for a practical guide on document extraction techniques, covering tools and libraries for handling various formats, strategies for preserving structure, and tips for optimizing extraction quality for RAG systems.
 
