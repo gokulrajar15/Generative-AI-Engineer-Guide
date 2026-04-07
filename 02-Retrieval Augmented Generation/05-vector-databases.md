@@ -38,3 +38,6 @@ Nowadays, many cloud providers also offer vector database services:
 - **Google Vertex AI**:  RAG Engine with integrated vector search and Vector Search.
 
 
+**Next**: [Hands-on building RAG with Vector Databases →](06-vector-database-tutorial.md)
+
+[← Back to Index](README.md)

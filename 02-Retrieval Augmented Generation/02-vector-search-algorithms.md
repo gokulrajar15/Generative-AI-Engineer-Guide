@@ -55,7 +55,6 @@ Naive approaches like comparing every vector pair (brute force) don't scale:
 
 [Learn more about algorithms](https://www.pinecone.io/learn/vector-database/)  <---- Great resource with detailed explanations and comparisons!
 
-
 ---
 
 *Hope you get a good grasp of vector search and distance metrics! These concepts are fundamental for building effective RAG systems. In the next section, we'll explore different vector search algorithms.*

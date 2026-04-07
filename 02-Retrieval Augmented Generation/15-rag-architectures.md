@@ -8,525 +8,198 @@ RAG architectures vary based on use cases, scale, and complexity requirements. T
 ## Basic RAG Architecture
 
 ### **Simple RAG Pipeline:**
-
 ```
 Query → Embed → Vector Search → Retrieve Top-K → Generate Answer
 ```
 
-```python
-class BasicRAG:
-    def __init__(self, vector_db, embedding_model, llm):
-        self.vector_db = vector_db
-        self.embed_model = embedding_model
-        self.llm = llm
-    
-    def query(self, question):
-        # 1. Embed query
-        query_embedding = self.embed_model.encode(question)
-        
-        # 2. Search
-        results = self.vector_db.search(query_embedding, top_k=5)
-        
-        # 3. Format context
-        context = "\n\n".join([r['text'] for r in results])
-        
-        # 4. Generate
-        prompt = f"Context: {context}\n\nQuestion: {question}\n\nAnswer:"
-        answer = self.llm.generate(prompt)
-        
-        return answer
-```
+**How it works:**
+1. User asks a question
+2. Convert question to vector embedding
+3. Search vector database for similar chunks
+4. Retrieve top matching documents
+5. Feed documents to LLM to generate answer
 
 **Pros:**
 - Simple to implement
-- Fast
+- Fast response times
 - Easy to debug
 
 **Cons:**
-- Limited accuracy
+- Limited accuracy for complex queries
 - No quality controls
-- Single retrieval pass
+- Single retrieval pass misses nuanced information
 
 ---
 
 ## Advanced RAG Architectures
 
 ### **1. Modular RAG**
+Breaks RAG into independent, swappable components.
 
-Separate components for flexibility.
-
-```python
-class ModularRAG:
-    def __init__(self):
-        self.indexing = IndexingModule()
-        self.retrieval = RetrievalModule()
-        self.reranking = RerankingModule()
-        self.generation = GenerationModule()
-        self.evaluation = EvaluationModule()
-    
-    def query(self, question):
-        # Retrieve candidates
-        candidates = self.retrieval.retrieve(question, top_k=20)
-        
-        # Rerank
-        reranked = self.reranking.rerank(question, candidates, top_k=5)
-        
-        # Generate
-        answer = self.generation.generate(question, reranked)
-        
-        # Evaluate
-        quality_score = self.evaluation.evaluate(question, answer, reranked)
-        
-        return {
-            'answer': answer,
-            'sources': reranked,
-            'quality_score': quality_score
-        }
-```
+**Components:**
+- Query processor (rewrites, expands queries)
+- Retriever (fetches documents)
+- Re-ranker (sorts by relevance)
+- Generator (creates final answer)
 
 **Benefits:**
 - Easy to upgrade individual components
-- Better quality control
+- Better quality control at each stage
 - Testable modules
+- Mix and match different retrieval strategies
+
+**Use when:** Building production systems that need flexibility and maintainability.
 
 ---
 
 ### **2. Agentic RAG**
+LLM acts as an agent that decides when and how to retrieve information.
 
-LLM decides when and how to retrieve.
+**How it works:**
+1. LLM analyzes the query
+2. Decides if retrieval is needed
+3. Formulates search queries
+4. Retrieves documents
+5. Analyzes results and decides if more retrieval is needed
+6. Generates final answer
 
-```python
-class AgenticRAG:
-    def __init__(self, retriever, llm):
-        self.retriever = retriever
-        self.llm = llm
-        self.conversation_history = []
-    
-    def query(self, question):
-        # Let LLM decide if retrieval is needed
-        decision = self.should_retrieve(question)
-        
-        if decision['needs_retrieval']:
-            # LLM generates search queries
-            search_queries = self.llm.generate_search_queries(question)
-            
-            # Retrieve for each query
-            all_docs = []
-            for sq in search_queries:
-                docs = self.retriever.retrieve(sq)
-                all_docs.extend(docs)
-            
-            # Deduplicate
-            unique_docs = self.deduplicate(all_docs)
-            
-            # Generate with retrieved context
-            answer = self.llm.generate_with_context(question, unique_docs)
-        else:
-            # Answer from knowledge
-            answer = self.llm.generate(question)
-        
-        self.conversation_history.append({
-            'question': question,
-            'answer': answer,
-            'retrieved': decision['needs_retrieval']
-        })
-        
-        return answer
-    
-    def should_retrieve(self, question):
-        """LLM decides if retrieval is needed"""
-        prompt = f"""Question: {question}
+**Benefits:**
+- Handles complex multi-step reasoning
+- Self-corrects when information is insufficient
+- Can call multiple tools (search, calculator, database)
 
-Should we retrieve external information to answer this question?
-Consider:
-- Is this factual information that might be in documents?
-- Or is this a general knowledge/reasoning question?
-
-Answer YES or NO and explain briefly.
-
-Decision:"""
-        
-        response = self.llm.generate(prompt)
-        needs_retrieval = "YES" in response.upper()
-        
-        return {
-            'needs_retrieval': needs_retrieval,
-            'reasoning': response
-        }
-```
+**Use when:** Queries require multiple steps or external tool usage.
 
 ---
 
 ### **3. Multi-Stage RAG**
+Performs retrieval in multiple passes to refine results.
 
-Multiple retrieval and refinement stages.
+**How it works:**
+1. **Stage 1:** Initial broad retrieval (top 100 documents)
+2. **Stage 2:** Re-rank to top 20
+3. **Stage 3:** Extract precise passages
+4. **Stage 4:** Generate answer with verified context
 
-```python
-class MultiStageRAG:
-    def query(self, question):
-        # Stage 1: Broad retrieval
-        broad_results = self.retriever.retrieve(question, top_k=50)
-        
-        # Stage 2: Rerank
-        reranked = self.reranker.rerank(question, broad_results, top_k=20)
-        
-        # Stage 3: Generate initial answer
-        initial_answer = self.llm.generate(question, reranked[:5])
-        
-        # Stage 4: Validate and refine
-        issues = self.validator.check(initial_answer, question)
-        
-        if issues:
-            # Stage 5: Retrieve additional context
-            additional_context = self.retriever.retrieve(
-                self.generate_clarifying_query(question, issues),
-                top_k=10
-            )
-            
-            # Stage 6: Regenerate with full context
-            all_context = reranked[:5] + additional_context
-            final_answer = self.llm.generate(question, all_context)
-        else:
-            final_answer = initial_answer
-        
-        return final_answer
-```
+**Benefits:**
+- Higher accuracy than single-pass
+- Filters noise progressively
+- Better handles ambiguous queries
+
+**Use when:** Accuracy is critical and you can afford extra latency.
 
 ---
 
 ### **4. Corrective RAG (CRAG)**
+Self-correcting RAG with built-in quality checks.
 
-Self-correcting RAG with quality checks.
+**How it works:**
+1. Retrieve documents
+2. **Evaluate relevance** (are these documents useful?)
+3. If poor quality → trigger web search or alternative sources
+4. If good quality → proceed to generation
+5. Verify answer against sources
 
-```python
-class CorrectiveRAG:
-    def query(self, question):
-        # Retrieve
-        docs = self.retrieve(question)
-        
-        # Grade relevance
-        relevant_docs = []
-        irrelevant_docs = []
-        
-        for doc in docs:
-            grade = self.grade_relevance(question, doc)
-            
-            if grade == 'relevant':
-                relevant_docs.append(doc)
-            elif grade == 'irrelevant':
-                irrelevant_docs.append(doc)
-            # else: 'unclear' → might refine
-        
-        # If all irrelevant, use web search
-        if not relevant_docs:
-            web_results = self.web_search(question)
-            relevant_docs = web_results
-        
-        # Generate answer
-        answer = self.generate(question, relevant_docs)
-        
-        # Hallucination check
-        if self.has_hallucinations(answer, relevant_docs):
-            # Regenerate with stricter prompt
-            answer = self.generate_strict(question, relevant_docs)
-        
-        return answer
-    
-    def grade_relevance(self, question, document):
-        """LLM grades document relevance"""
-        prompt = f"""Question: {question}
+**Benefits:**
+- Detects and fixes retrieval failures
+- Falls back to alternative sources
+- Higher reliability
 
-Document: {document}
-
-Is this document relevant to answering the question?
-Answer: relevant / irrelevant / unclear
-
-Grade:"""
-        
-        response = self.llm.generate(prompt).lower()
-        
-        if 'relevant' in response and 'irrelevant' not in response:
-            return 'relevant'
-        elif 'irrelevant' in response:
-            return 'irrelevant'
-        else:
-            return 'unclear'
-```
+**Use when:** You need reliable answers even when internal knowledge is incomplete.
 
 ---
 
 ### **5. GraphRAG**
+Uses knowledge graphs to understand relationships between entities.
 
-Use knowledge graphs for structured retrieval.
+**How it works:**
+1. Build knowledge graph from documents (entities + relationships)
+2. Query traverses graph to find connected information
+3. Retrieve subgraphs relevant to query
+4. Generate answer from graph context
 
-```python
-class GraphRAG:
-    def __init__(self, graph_db, vector_db, llm):
-        self.graph = graph_db
-        self.vector_db = vector_db
-        self.llm = llm
-    
-    def query(self, question):
-        # 1. Entity extraction
-        entities = self.extract_entities(question)
-        
-        # 2. Graph retrieval (traverse relationships)
-        graph_context = []
-        for entity in entities:
-            # Get related entities and relationships
-            subgraph = self.graph.get_subgraph(entity, depth=2)
-            graph_context.append(subgraph)
-        
-        # 3. Vector retrieval
-        vector_context = self.vector_db.search(question, top_k=5)
-        
-        # 4. Combine contexts
-        combined_context = self.merge_contexts(graph_context, vector_context)
-        
-        # 5. Generate
-        answer = self.llm.generate(question, combined_context)
-        
-        return answer
-    
-    def extract_entities(self, text):
-        """Extract named entities from question"""
-        prompt = f"""Extract key entities from this question:
-        
-Question: {text}
+**Benefits:**
+- Understands relationships (e.g., "Who worked with John at Microsoft?")
+- Better for multi-hop reasoning
+- Explainable retrieval paths
 
-Entities:"""
-        
-        response = self.llm.generate(prompt)
-        return response.strip().split(',')
-```
+**Use when:** Your domain has rich entity relationships (legal, medical, corporate knowledge).
 
 ---
 
 ### **6. Hierarchical RAG**
+Organizes documents in a multi-level structure (summaries → sections → chunks).
 
-Multi-level document structure.
+**How it works:**
+1. **Level 1:** Search document summaries
+2. **Level 2:** Narrow to relevant sections
+3. **Level 3:** Retrieve specific chunks
+4. Generate answer from precise context
 
-```python
-class HierarchicalRAG:
-    def __init__(self):
-        # Index at multiple levels
-        self.document_index = DocumentLevelIndex()
-        self.section_index = SectionLevelIndex()
-        self.chunk_index = ChunkLevelIndex()
-    
-    def query(self, question):
-        # Level 1: Find relevant documents
-        relevant_docs = self.document_index.search(question, top_k=3)
-        
-        # Level 2: Within those documents, find relevant sections
-        relevant_sections = []
-        for doc in relevant_docs:
-            sections = self.section_index.search_within_document(
-                question, doc['id'], top_k=5
-            )
-            relevant_sections.extend(sections)
-        
-        # Level 3: Within sections, find specific chunks
-        relevant_chunks = []
-        for section in relevant_sections:
-            chunks = self.chunk_index.search_within_section(
-                question, section['id'], top_k=3
-            )
-            relevant_chunks.extend(chunks)
-        
-        # Generate with chunk-level context
-        answer = self.llm.generate(question, relevant_chunks)
-        
-        return answer
-```
+**Benefits:**
+- Faster for large document collections
+- Provides document-level context
+- Better handles long documents
+
+**Use when:** Working with large structured documents (reports, manuals, books).
 
 ---
 
 ### **7. Routing RAG**
+Routes queries to specialized retrievers based on intent.
 
-Route queries to specialized retrievers.
+**How it works:**
+1. Classify query intent (technical doc, FAQ, code example, etc.)
+2. Route to appropriate retriever:
+   - Technical questions → API documentation retriever
+   - Code questions → code snippet retriever
+   - General questions → full-text search
+3. Generate answer from specialized source
 
-```python
-class RoutingRAG:
-    def __init__(self):
-        self.routers = {
-            'technical': TechnicalRetriever(),
-            'general': GeneralRetriever(),
-            'recent': RecentDocsRetriever(),
-            'historical': HistoricalRetriever()
-        }
-        self.classifier = QueryClassifier()
-    
-    def query(self, question):
-        # Classify query
-        query_type = self.classifier.classify(question)
-        
-        # Route to appropriate retriever
-        retriever = self.routers.get(query_type, self.routers['general'])
-        
-        # Retrieve and generate
-        docs = retriever.retrieve(question)
-        answer = self.llm.generate(question, docs)
-        
-        return {
-            'answer': answer,
-            'query_type': query_type,
-            'retriever_used': query_type
-        }
-```
+**Benefits:**
+- Each retriever optimized for specific content type
+- Higher precision
+- Faster search in specialized indexes
+
+**Use when:** You have diverse content types requiring different retrieval strategies.
 
 ---
 
 ### **8. Conversational RAG**
+Maintains conversation history for multi-turn dialogues.
 
-Multi-turn conversations with memory.
+**How it works:**
+1. Track conversation history
+2. Rewrite current query using context from previous turns
+3. Retrieve documents based on full conversation
+4. Generate answer aware of conversation flow
+5. Update conversation memory
 
-```python
-class ConversationalRAG:
-    def __init__(self, retriever, llm):
-        self.retriever = retriever
-        self.llm = llm
-        self.conversation_history = []
-    
-    def query(self, question):
-        # Rewrite query with conversation context
-        if self.conversation_history:
-            standalone_question = self.rewrite_with_history(
-                question,
-                self.conversation_history
-            )
-        else:
-            standalone_question = question
-        
-        # Retrieve with standalone question
-        docs = self.retriever.retrieve(standalone_question)
-        
-        # Generate with both history and retrieved docs
-        answer = self.generate_conversational(
-            question,
-            docs,
-            self.conversation_history
-        )
-        
-        # Update history
-        self.conversation_history.append({
-            'human': question,
-            'ai': answer
-        })
-        
-        # Keep last N turns
-        if len(self.conversation_history) > 5:
-            self.conversation_history = self.conversation_history[-5:]
-        
-        return answer
-    
-    def rewrite_with_history(self, question, history):
-        """Convert follow-up to standalone question"""
-        history_text = "\n".join([
-            f"Human: {turn['human']}\nAI: {turn['ai']}"
-            for turn in history[-3:]  # Last 3 turns
-        ])
-        
-        prompt = f"""Given the conversation history, rewrite the follow-up question to be standalone.
+**Benefits:**
+- Handles follow-up questions ("What about Python instead?")
+- Maintains context across turns
+- More natural user experience
 
-Conversation history:
-{history_text}
-
-Follow-up question: {question}
-
-Standalone question:"""
-        
-        standalone = self.llm.generate(prompt)
-        return standalone
-```
+**Use when:** Building chatbots or assistants with ongoing conversations.
 
 ---
 
 ## Hybrid Architectures
 
 ### **Combining Multiple Approaches:**
+Real-world systems often combine architectures for better results.
 
-```python
-class HybridRAG:
-    def __init__(self):
-        self.vector_retriever = VectorRetriever()
-        self.keyword_retriever = KeywordRetriever()
-        self.graph_retriever = GraphRetriever()
-        self.reranker = Reranker()
-    
-    def query(self, question):
-        # Parallel retrieval from multiple sources
-        vector_results = self.vector_retriever.retrieve(question, k=20)
-        keyword_results = self.keyword_retriever.retrieve(question, k=20)
-        graph_results = self.graph_retriever.retrieve(question, k=10)
-        
-        # Merge and deduplicate
-        all_results = self.merge_results([
-            vector_results,
-            keyword_results,
-            graph_results
-        ])
-        
-        # Rerank combined results
-        final_results = self.reranker.rerank(question, all_results, top_k=5)
-        
-        # Generate
-        answer = self.llm.generate(question, final_results)
-        
-        return answer
-```
+**Example: GraphRAG + Vector Search**
+- Use vector search for broad initial retrieval
+- Use knowledge graph to find related entities and relationships
+- Combine both results for comprehensive context
 
----
+**Example: Agentic + Multi-Stage**
+- Agent decides retrieval strategy
+- Each retrieval uses multi-stage refinement
+- Best of both worlds: intelligent routing + high precision
 
-## Production Architecture
-
-```python
-class ProductionRAG:
-    def __init__(self):
-         self.cache = RedisCache()
-        self.retriever = Retriever()
-        self.reranker = Reranker()
-        self.llm = LLM()
-        self.monitor = Monitor()
-        self.rate_limiter = RateLimiter()
-    
-    async def query(self, question, user_id):
-        # Rate limiting
-        await self.rate_limiter.check(user_id)
-        
-        # Check cache
-        cache_key = self.get_cache_key(question)
-        cached = await self.cache.get(cache_key)
-        
-        if cached:
-            self.monitor.log('cache_hit')
-            return cached
-        
-        # Start monitoring
-        with self.monitor.track_query():
-            try:
-                # Retrieve
-                docs = await self.retriever.retrieve(question)
-                
-                # Rerank
-                reranked = await self.reranker.rerank(question, docs)
-                
-                # Generate
-                answer = await self.llm.generate(question, reranked)
-                
-                # Validate
-                if not self.validate_answer(answer):
-                    raise ValueError("Invalid answer generated")
-                
-                # Cache result
-                await self.cache.set(cache_key, answer, ttl=3600)
-                
-                return answer
-                
-            except Exception as e:
-                self.monitor.log_error(e)
-                raise
-```
+**Key principle:** Layer architectures to get benefits of each approach.
 
 ---
 
@@ -535,32 +208,38 @@ class ProductionRAG:
 | Use Case | Recommended Architecture |
 |----------|-------------------------|
 | Simple Q&A | Basic RAG |
-| High accuracy | Multi-Stage RAG |
-| Conversations | Conversational RAG |
+| High accuracy needed | Multi-Stage RAG |
+| Chat/conversations | Conversational RAG |
 | Complex reasoning | Agentic RAG |
-| Structured data | GraphRAG |
-| Production scale | Modular + Production patterns |
-| Domain-specific | Routing RAG |
-| Multi-document | Hierarchical RAG |
+| Structured data with relationships | GraphRAG |
+| Production scale | Modular + Multi-Stage |
+| Multiple document types | Routing RAG |
+| Large document collections | Hierarchical RAG |
+| Incomplete knowledge base | Corrective RAG (CRAG) |
 
 ---
 
 ## Best Practices
 
-1. **Start simple**: Begin with basic RAG, add complexity as needed
-2. **Modular design**: Separate concerns for flexibility
-3. **Monitor everything**: Track metrics at each stage
-4. **Cache aggressively**: Reduce latency and costs
-5. **Fail gracefully**: Handle errors at each step
-6. **Test thoroughly**: Unit test each component
-7. **Version control**: Track changes to prompts and configs
-8. **A/B test**: Compare architectures on your data
+1. **Start simple**: Begin with basic RAG, add complexity only when needed. Most problems don't require advanced architectures.
 
----
+2. **Modular design**: Separate retrieval, ranking, and generation. Makes debugging and upgrades easier.
 
-## Next Steps
-- Implement basic RAG first
-- Add components based on your needs
-- Benchmark different architectures
-- Optimize for your specific use case
-- Build monitoring and observability
+3. **Monitor everything**: Track retrieval quality, latency, and user satisfaction at each stage.
+
+4. **Cache aggressively**: Cache embeddings, retrieved documents, and even generated answers to reduce costs and latency.
+
+5. **Fail gracefully**: Handle errors at each step. If retrieval fails, fallback to web search or a default response.
+
+6. **Test thoroughly**: Unit test each component. Create test sets of queries with expected retrieved documents.
+
+7. **Version control**: Track changes to prompts, chunking strategies, and system configurations.
+
+8. **A/B test**: Compare architectures on real user queries, not just toy examples. Measure precision, recall, and user satisfaction.
+
+*So far, we have covered the core components of RAG systems. Next, we will explore how graph databases can enhance RAG by providing structured knowledge representation and powerful traversal capabilities.*
+
+
+[<- Previous: Evaluation Metrics](14-evaluation-metrics.md) | [Next: Graph Databases →](16-graph-databases.md)
+
+[<- Back to Index](README.md)

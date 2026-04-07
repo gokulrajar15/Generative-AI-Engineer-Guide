@@ -3,6 +3,11 @@
 ## Overview
 Vector search enables finding similar items by representing data as numerical vectors in high-dimensional space. This is fundamental to RAG systems for retrieving relevant documents.
 
+I would suggest you to visulize the vector space, how beautifull it is before entering into the technical details. It will help you to understand the concepts better.
+
+[High-dimensional vector space](https://anvaka.github.io/pm/#/galaxy/word2vec-wiki?cx=-5825&cy=4632&cz=-3912&lx=-0.6654&ly=-0.6405&lz=0.0845&lw=0.3740&ml=300&s=1.75&l=1&v=d50_clean_small). Check out this interactive visualization of word embeddings!
+
+
 ---
 
 ## Vector Search
