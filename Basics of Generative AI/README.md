@@ -26,20 +26,20 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
    - Frequency/Presence penalties
 
 ### Practical Skills (Week 2-3)
-5. [**Hands-on Practice with APIs**](05-hands-on-practice.md)
-   - Working with OpenAI, Google Gemini, Claude, Groq APIs
-   - Text generation and basic interactions
 
+5. [**Context Management**](07-context-management.md)
+   - Managing conversation history
+   - Rolling window, Recursive summarization
+   - Selective retention
+   - Best practices for long conversations
 6. [**Prompting Best Practices and Strategies**](06-prompting-strategies.md)
    - Prompt engineering techniques
    - Few-shot learning, Chain-of-thought prompting
    - Role-based prompting, System messages
 
-7. [**Context Management**](07-context-management.md)
-   - Managing conversation history
-   - Rolling window, Recursive summarization
-   - Selective retention
-   - Best practices for long conversations
+7. [**Hands-on Practice with APIs**](05-hands-on-practice.md)
+   - Working with OpenAI, Google Gemini, Claude, Groq APIs
+   - Text generation and basic interactions
 
 8. [**Structured Output Generation**](08-structured-output.md)
    - Generating JSON and structured data
@@ -115,16 +115,18 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
     - GPTQ, AWQ, GGUF
     - Benefits and trade-offs
 
-22. [**Model Serving and Inference Strategies**](22-serving-strategies.md)
-    - Batching, KV Cache
-    - Speculative decoding, Continuous batching
-    - Model parallelism, Tensor parallelism
-
 23. [**Model Hosting and Inference**](23-model-hosting.md)
     - Inference Servers (vLLM, SGLang, Triton, LitServe)
     - Deployment best practices
     - Scaling considerations
+    - Batching, KV Cache
+    - Speculative decoding, Continuous batching
+    - Model parallelism, Tensor parallelism
 
+*We have covered basics of generative AI in this section. The next sections will cover RAG (Retrieval-Augmented Generation) and AI Agents, which are more advanced topics that build on these fundamentals.*
 
+Next: [Retrieval-Augmented Generation (RAG)](24-rag.md)
 
 [← Back to Main Guide](../README.md)
+
+
