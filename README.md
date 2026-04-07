@@ -40,7 +40,7 @@ This repository is a complete roadmap for engineers who want to master **Generat
 
 ## 📚 Topics
 
-### 1️⃣ [Basics of Generative AI](Basics%20of%20Generative%20AI/README.md)
+### 1️⃣ [Basics of Generative AI](01-Basics%20of%20Generative%20AI/README.md)
 
 Master the fundamentals of generative AI with **19 comprehensive topics**, including:
 - **Open-source & Closed-source LLMs**: Understanding different models (GPT, Claude, Gemini, LLaMA, etc.)
@@ -56,7 +56,7 @@ Master the fundamentals of generative AI with **19 comprehensive topics**, inclu
 - **Quantization & Inference**: Optimizing models for production
 - **Model Hosting**: vLLM, SGLang, Triton, LitServe
 
-### 2️⃣ [RAG (Retrieval-Augmented Generation)](rag.md)
+### 2️⃣ [RAG (Retrieval-Augmented Generation)](02-Retrieval%20Augmented%20Generation/README.md)
 
 Build intelligent retrieval systems that enhance LLM responses:
 - **Vector Search & Distance Metrics**: Cosine similarity, Euclidean distance
@@ -70,7 +70,7 @@ Build intelligent retrieval systems that enhance LLM responses:
 - **RAG Evaluation**: Metrics and best practices
 - **Advanced RAG**: Multi-modal RAG, agentic RAG, GraphRAG
 
-### 3️⃣ [AI Agents](agents.md)
+### 3️⃣ [AI Agents](03-Agentic%20AI/README.md)
 
 Create autonomous AI agents that can reason, plan, and execute tasks:
 - **Agent Fundamentals**: Understanding agent architectures and workflows
@@ -127,7 +127,7 @@ Before diving in, you should have:
    ```
 
 2. **Start with the basics**
-   - Begin with [Basics of Generative AI](basics-of-generative-ai/)
+   - Begin with [Basics of Generative AI](01-Basics%20of%20Generative%20AI/README.md)
    - Each topic is in its own file for easy navigation
    - Follow the topics sequentially for structured learning
    - Try the hands-on examples and exercises
