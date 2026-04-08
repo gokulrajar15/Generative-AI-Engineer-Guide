@@ -1,6 +1,5 @@
 # Understanding the Messages Structure in LLM APIs
 
-## Why Do We Need Messages?
 
 LLMs are **stateless** — they remember nothing between API calls. Every time you call the API, you start fresh.
 
@@ -8,7 +7,7 @@ So to have a real conversation, you must manually send the **entire conversation
 array is how you do that.
 
 ![Messages Structure](../assets/Basics_of_Generative_AI/05-context-management/memory.png)
----
+
 
 ## The Messages Array
 
@@ -48,7 +47,6 @@ Note: Also known as system prompt or instruction prompt. You can include facts, 
 {"role": "assistant", "content": "The capital of France is Paris."}
 ```
 
----
 
 ## A Full Multi-Turn Example
 
@@ -72,7 +70,6 @@ messages=[
 
 The model reads all of this and responds to the final `user` message — but now it knows the full context.
 
----
 
 ## How Conversation History Grows
 
@@ -86,7 +83,6 @@ Call 3:  [system, user, assistant, user, assistant, user]
 
 > You always end with a `user` message. The model picks up from there.
 
----
 
 ## Visual Structure
 
@@ -114,7 +110,7 @@ messages = [
 ]
 ```
 
----
+
 
 ## Key Rules to Remember
 
@@ -124,7 +120,6 @@ messages = [
 4. **You must include past turns yourself** — the API does not store history for you.
 5. **More history = more tokens** — long conversations increase cost and can hit the context limit.
 
----
 
 ## What Happens If You Don't Include History?
 
@@ -156,9 +151,7 @@ Without history, every call is a **blank slate**.
 
 > **In short:** the `messages` array is the model's only "memory." You own it, you manage it. this also called short-term memory.
 
----
 
----
 
 # Advanced Approaches to Optimize Context
 
@@ -237,6 +230,8 @@ After window:  [                    turn4, turn5, turn6, turn7, turn8]
 ### What is it?
 
 Instead of dropping old messages, you **compress them into a summary**. When history gets too long, you ask the model to summarize older turns into a single message, then carry that summary forward.
+
+![Recursive Summarization](../assets/Basics_of_Generative_AI/05-context-management/rolling_window_summarization.png)
 
 ### How it works
 

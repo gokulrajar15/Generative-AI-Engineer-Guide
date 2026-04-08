@@ -2,6 +2,8 @@
 
 AI Agents are autonomous systems that can perceive their environment, make decisions, and take actions to achieve specific goals without continuous human intervention. Unlike traditional chatbots that simply respond to queries, agents actively plan, reason, use tools, and learn from their interactions.
 
+![AI Agents](../assets/Agentic%20AI/01-introduction-to-ai-agents/ai_agents.png)
+
 ### Key Differences from Traditional AI Systems
 
 | Traditional AI/Chatbots | AI Agents |
@@ -26,6 +28,8 @@ The reasoning engine that powers the agent's decision-making process. Modern age
 - Gemini 3.0 Pro and Flash
 - Kimi 2.5
 - GLM 5.0
+
+*Refer terminal bench 2.0 and SWE bench for agentic performance comparisons.*
 
 The brain handles:
 - Understanding user intent

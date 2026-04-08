@@ -9,7 +9,8 @@ Track the latest model performance using popular leaderboards across reasoning, 
 3. [Artificial Analysis AI](https://artificialanalysis.ai/) — In-depth model analysis
 4. [Scale Benchmarks](https://scale.com/benchmarks) — Standardized benchmarks
 5. [Live Bench](https://livebench.ai/#/?highunseenbias=true) — Real-time performance tracking
-6. [Hugging Face Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open-llm-leaderboard) — Community-driven model evaluations (various benchmarks)
+6. [Hugging Face Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/) — Community-driven model evaluations, archived recently
+ (various benchmarks)
 
 > **Tip:** Before developing a solution, always check the latest leaderboards for your target area (agentic tasks, coding, reasoning, etc.) to understand the current state of the art and set realistic performance targets.
 

@@ -1,10 +1,8 @@
 # Tool Integration and APIs
 
-## Overview
-
 Tools are what enable AI agents to take actions and interact with the external world. Without tools, agents can only generate text. With tools, they can search the web, query databases, send emails, execute code, and perform countless other tasks. Mastering tool integration is essential for building capable, production-ready agents.
 
----
+![Tool Integration](../assets/Agentic%20AI/05-tool-integration-apis/tools.png)
 
 ## What are Agent Tools?
 
@@ -32,7 +30,7 @@ Tools are functions or APIs that agents can call to perform specific actions or 
 - Mathematical calculations
 - Data processing
 - Image generation/editing
--Video processing
+- Video processing
 
 ### **4. Integration Tools**
 - CRM systems (Salesforce, HubSpot)

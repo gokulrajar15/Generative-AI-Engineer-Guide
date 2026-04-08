@@ -1,10 +1,8 @@
 # Agent Frameworks
 
-## Overview
-
 Agent frameworks provide the infrastructure, tools, and abstractions needed to build sophisticated AI agents efficiently. Instead of building everything from scratch, frameworks offer pre-built components for agent orchestration, memory management, tool integration, and workflow design. This guide explores the leading agent frameworks available in 2026.
 
----
+![Agent Frameworks](../assets/Agentic%20AI/03-agent-frameworks/agentic_framworks.png)
 
 ## Why Use Agent Frameworks?
 
@@ -33,14 +31,14 @@ Agent frameworks provide the infrastructure, tools, and abstractions needed to b
 - Monitoring integration
 - Performance optimization
 
----
 
 ## 1. LangChain & LangGraph
 
 ### **LangChain**
 
-**Overview:**
 LangChain is the most popular framework for building LLM-powered applications and agents. It provides a comprehensive toolkit for prompt management, chains, agents, memory, and integrations.
+
+![LangChain Components](../assets/Agentic%20AI/03-agent-frameworks/langchain.png)
 
 **Core Components:**
 
@@ -86,8 +84,9 @@ LangChain is the most popular framework for building LLM-powered applications an
 
 ### **LangGraph**
 
-**Overview:**
 LangGraph (from LangChain team) is specifically designed for building stateful, multi-actor applications with cycles and complex control flow. It uses a graph-based approach where nodes represent actions and edges represent flow.
+
+![LangGraph Architecture](../assets/Agentic%20AI/03-agent-frameworks/langgraph.png)
 
 **Core Concepts:**
 
@@ -140,12 +139,12 @@ LangGraph (from LangChain team) is specifically designed for building stateful, 
 | **Production Ready** | Good | Excellent |
 | **Learning Curve** | Easier | Moderate |
 
----
 
 ## 2. CrewAI
 
-**Overview:**
 CrewAI is a framework specifically designed for building multi-agent systems where agents collaborate as a "crew" to accomplish complex tasks. It emphasizes role-based agents working together.
+
+![CrewAI Architecture](../assets/Agentic%20AI/03-agent-frameworks/crewai.png)
 
 **Core Concepts:**
 
@@ -211,12 +210,12 @@ CrewAI is a framework specifically designed for building multi-agent systems whe
 - Customer support teams
 - Analysis and reporting
 
----
 
 ## 3. Google Agent Development Kit (ADK)
 
-**Overview:**
 Google's ADK (formerly Project IDX integration) is a comprehensive framework for building, testing, and deploying production-grade AI agents with deep integration into Google Cloud ecosystem.
+
+![Google ADK Architecture](../assets/Agentic%20AI/03-agent-frameworks/adk.png)
 
 **Core Components:**
 
@@ -273,12 +272,12 @@ Google's ADK (formerly Project IDX integration) is a comprehensive framework for
 ❌ Open-source preference
 ❌ Custom deployment needs
 
----
 
 ## 4. Microsoft Semantic Kernel
 
-**Overview:**
 Semantic Kernel is Microsoft's SDK for integrating LLMs into applications with a focus on enterprise scenarios, Azure integration, and cross-platform support (.NET, Python, Java).
+
+![Semantic Kernel Architecture](../assets/Agentic%20AI/03-agent-frameworks/semantic_kernel.png)
 
 **Core Concepts:**
 
@@ -341,12 +340,12 @@ Semantic Kernel is Microsoft's SDK for integrating LLMs into applications with a
 ❌ Need lightweight framework
 ❌ Avoid vendor lock-in
 
----
 
 ## 5. Microsoft AutoGen
 
-**Overview:**
 AutoGen is a Microsoft framework specifically for building multi-agent conversation systems. Agents communicate via messages to solve tasks collaboratively.
+
+![AutoGen Architecture](../assets/Agentic%20AI/03-agent-frameworks/autogen.png)
 
 **Core Features:**
 
@@ -401,8 +400,9 @@ AutoGen is a Microsoft framework specifically for building multi-agent conversat
 
 ## 6. LlamaIndex (Data Framework for LLM Apps)
 
-**Overview:**
 While primarily a data framework, LlamaIndex includes powerful agent capabilities focused on data retrieval and reasoning over structured/unstructured data.
+
+![LlamaIndex Architecture](../assets/Agentic%20AI/03-agent-frameworks/llamaindex.png)
 
 **Agent Features:**
 
@@ -434,8 +434,9 @@ While primarily a data framework, LlamaIndex includes powerful agent capabilitie
 
 ## 7. Haystack
 
-**Overview:**
 Haystack by deepset is an end-to-end framework for building NLP applications with strong support for agents and RAG.
+
+![Haystack Architecture](../assets/Agentic%20AI/03-agent-frameworks/haystack.png)
 
 **Agent Capabilities:**
 - Agent pipelines
@@ -449,31 +450,6 @@ Haystack by deepset is an end-to-end framework for building NLP applications wit
 ✅ Document processing
 ✅ Open-source preference
 
----
-
-## 8. LangChain Alternatives & Specialized Frameworks
-
-### **AgentGPT**
-- Autonomous web-based agents
--Browser automation
-- Goal-driven tasks
-
-### **BabyAGI**
-- Task-driven autonomous agents
-- Simplified architecture
-- Learning-focused
-
-### **SuperAGI**
-- Open-source AGI framework
-- GUI for agent management
-- Resource management
-
-### **IX (Agent Development Platform)**
-- Visual agent builder
-- Chain composition
-- Deployment platform
-
----
 
 ## Framework Comparison Matrix
 
@@ -487,7 +463,6 @@ Haystack by deepset is an end-to-end framework for building NLP applications wit
 | **AutoGen** | Conversational multi-agent | Medium | Excellent | Good | Moderate |
 | **LlamaIndex** | Data-centric apps | Medium | Basic | Good | Easy-Moderate |
 
----
 
 ## Choosing the Right Framework
 
@@ -529,7 +504,6 @@ Haystack by deepset is an end-to-end framework for building NLP applications wit
 - Deployment targets
 - Security requirements
 
----
 
 ## Best Practices Across Frameworks
 
@@ -565,7 +539,6 @@ Haystack by deepset is an end-to-end framework for building NLP applications wit
 - Minimize redundant calls
 - Implement fallbacks
 
----
 
 ## Framework Ecosystems
 
@@ -590,77 +563,6 @@ Haystack by deepset is an end-to-end framework for building NLP applications wit
 - Google AI Studio
 - Firebase
 
----
-
-## Future of Agent Frameworks
-
-### **Emerging Trends:**
-
-**Framework Consolidation:**
-- Interoperability standards
-- Cross-framework compatibility
-- Unified APIs
-
-**Low-Code/No-Code:**
-- Visual agent builders
-- Template marketplaces
-- Drag-and-drop workflows
-
-**Specialized Frameworks:**
-- Domain-specific (healthcare, finance)
-- Use-case optimized
-- Vertical integration
-
-**AI-Native Development:**
-- AI-assisted agent building
-- Automatic optimization
-- Self-improving frameworks
-
----
-
-## Resources & Learning
-
-### **LangChain:**
-- Documentation: python.langchain.com
-- LangSmith: smith.langchain.com
-- Community: Discord, GitHub
-
-### **CrewAI:**
-- Documentation: docs.crewai.com
-- GitHub: github.com/joaomdmoura/crewAI
-- Examples: crewai-examples
-
-### **Google ADK:**
-- Google Cloud documentation
-- Vertex AI docs
-- Qwiklabs tutorials
-
-### **Microsoft:**
-- Semantic Kernel GitHub
-- AutoGen documentation
-- Microsoft Learn modules
-
----
-
-## Summary
-
-**Key Takeaways:**
-
-1. **Frameworks accelerate development** significantly
-2. **Choose based on your use case and tech stack**
-3. **LangChain/LangGraph dominate** the Python ecosystem
-4. **CrewAI excels** at multi-agent collaboration
-5. **Enterprise frameworks** offer additional security and compliance
-6. **Start simple**, add complexity as needed
-
-**Quick Recommendations:**
-- **Learning**: Start with LangChain
-- **Production**: Use LangGraph or CrewAI
-- **Enterprise**: Consider ADK or Semantic Kernel
-- **Multi-Agent**: CrewAI or AutoGen
-- **Data Apps**: LlamaIndex
-
----
 
 [Next: Memory and Context Management →](04-memory-context-management.md)
 
