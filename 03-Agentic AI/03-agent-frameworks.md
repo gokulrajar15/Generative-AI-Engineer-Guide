@@ -564,8 +564,6 @@ Haystack by deepset is an end-to-end framework for building NLP applications wit
 - Firebase
 
 
-[Next: Memory and Context Management →](04-memory-context-management.md)
-
-[← Back to Agent Architectures](02-types-of-ai-agents-architechtures.md)
+[<- Previous: Types of agent architectures](02-types-of-ai-agents-architechtures.md) | [Next: Memory and Context Management ->](04-memory-context-management.md)
 
 [← Back to Agentic AI Index](README.md)

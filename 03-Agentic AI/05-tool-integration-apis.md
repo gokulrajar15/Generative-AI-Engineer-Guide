@@ -828,10 +828,7 @@ Else: use standard_api
 ✓ Testing coverage
 ✓ Documentation
 
----
+[<- Previous: Memory and Context Management](04-memory-context-management.md) | [Next: Agent Monitoring and Observability →](07-agent-monitoring-observability.md)
 
-[Next: Agent Evaluation Metrics →](06-agent-evaluation-metrics.md)
+[<- Back to Agentic AI Index](README.md)
 
-[← Back to Memory Management](04-memory-context-management.md)
-
-[← Back to Agentic AI Index](README.md)

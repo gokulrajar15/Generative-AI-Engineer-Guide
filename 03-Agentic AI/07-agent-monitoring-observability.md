@@ -8,17 +8,18 @@ Monitoring and observability are critical for understanding agent behavior, debu
 
 ## Agent Monitoring
 
-Now days, most of the agent framworks come with built-in monitoring and observability tools.
+Nowadays, most of the agent frameworks come with built-in monitoring and observability tools.
 
 - **Langsmith** - Used for langchain, langraph, provides detailed tracing of agent reasoning, tool usage, and multi-step actions. It offers a visual interface to inspect agent decisions and identify bottlenecks.
 - **CrewAI Tracing** - Built-in tracing for CrewAI Crews and Flows with the CrewAI AMP platform
+- **MaximAI** - It's an end-to-end platform for the simulation, evaluation and observability of AI agents and applications, which helps development teams build and deploy reliable generative AI products faster.
+- **Arize AI (Phoenix)** - Open source open-source LLM tracing & evaluation platform, Provides monitoring and observability for AI models, including agents, with features like performance tracking, error analysis, and drift detection.
+
+And many more monitoring tools are their, it's important to choose the right monitoring tool based on your agent framework and specific monitoring needs.
+
+*Agent monitoring is very crucial for debugging and improving agent performance, it provides insights into how the agent is making decisions, which tools it is using, and where it might be going wrong. Always set up monitoring early in the development process to catch issues before they become critical.*
 
 
+[<- Previous: Agent Evaluation Metrics](06-agent-evaluation-metrics.md) | [Next: Hands-on Agent Building →](08-hands-on.md)
 
-
-
-[Next: Hands-on Agent Building →](08-hands-on.md)
-
-[← Back to Evaluation Metrics](06-agent-evaluation-metrics.md)
-
-[← Back to Agentic AI Index](README.md)
+[<- Back to Agentic AI Index](README.md)

@@ -5,8 +5,6 @@ Memory and context management are critical components that transform stateless L
 We have covered this component in detail in the [Basics of Generative AI](../01-Basics%20of%20Generative%20AI/05-context-management.md) section. This is the same for agentic AI as well.
 
 
-[Next: Tool Integration and APIs →](05-tool-integration-apis.md)
+[<- Previous: Agent Frameworks](03-agent-frameworks.md) | [Next: Tools and Action Management →](05-tools-integration-apis.md)
 
-[← Back to Agent Frameworks](03-agent-frameworks.md)
-
-[← Back to Agentic AI Index](README.md)
+[<- Back to Agentic AI Index](README.md)
