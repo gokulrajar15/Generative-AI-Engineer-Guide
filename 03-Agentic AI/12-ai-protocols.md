@@ -542,6 +542,12 @@ Shared with payment network and issuer to signal AI agent involvement.
 
 ---
 
+## References
+There are a lot of protocols being developed in the agentic AI ecosystem, check out the following resources for the latest developments in AI protocols
+
+- [Agentic AI Protocols Index](https://www.ssonetwork.com/intelligent-automation/columns/ai-agent-protocols-10-modern-standards-shaping-the-agentic-era) <--- Comprehensive list of protocols in the agentic AI ecosystem, including MCP, A2A, A2UI, AP2, and more.
+
+
 [<- Previous: Guardrails and Safety Protocols](11-guardrails-safety-protocols.md) | [Next: Feedback Loops and Optimization ->](13-feedback-loops-optimization.md)
 
 [<- Back to Agentic AI Index](README.md)
