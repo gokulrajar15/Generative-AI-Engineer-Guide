@@ -95,28 +95,22 @@ AI Agents go beyond simple chatbots by:
 
 ### Advanced Topics
 
-12. **[MCP Protocol](13-mcp-protocol.md)**
+12. **[Protocols for Multi-Agent Communication](12-protocols.md)**
     - Multi-agent Communication Protocol
-    - Protocol specification
-    - Message passing and coordination
-    - Hands-on implementation
-    - Use cases and patterns
-
-13. **[Advanced Agent Protocols](14-advanced-agent-protocols.md)**
     - A2A (Agent-to-Agent) protocol
     - Agent-UI protocol for human interaction
     - Agent Payment protocols
     - Protocol interoperability
     - Building custom protocols
 
-14. **[Feedback Loops and Optimization](15-feedback-loops-optimization.md)**
+13. **[Feedback Loops and Optimization](15-feedback-loops-optimization.md)**
     - Prompt versioning and A/B testing
     - Cost optimization strategies
     - Prompt caching techniques
     - LLM-as-a-judge patterns
     - Human-in-the-loop workflows
 
-15. **[Context Engineering](16-context-engineering.md)**
+14. **[Context Engineering](16-context-engineering.md)**
     - Dynamic context construction
     - Context compression techniques
     - Selective context retrieval
