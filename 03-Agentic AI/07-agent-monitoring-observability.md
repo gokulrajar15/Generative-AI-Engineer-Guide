@@ -14,6 +14,7 @@ Nowadays, most of the agent frameworks come with built-in monitoring and observa
 - **CrewAI Tracing** - Built-in tracing for CrewAI Crews and Flows with the CrewAI AMP platform
 - **MaximAI** - It's an end-to-end platform for the simulation, evaluation and observability of AI agents and applications, which helps development teams build and deploy reliable generative AI products faster.
 - **Arize AI (Phoenix)** - Open source open-source LLM tracing & evaluation platform, Provides monitoring and observability for AI models, including agents, with features like performance tracking, error analysis, and drift detection.
+- **LangFuse** - Open-source monitoring and observability platform for LLMs and agents, offering real-time tracing, performance metrics, and error analysis to optimize agent behavior.
 
 And many more monitoring tools are their, it's important to choose the right monitoring tool based on your agent framework and specific monitoring needs.
 

@@ -52,7 +52,7 @@ Key benchmarks for evaluating LLM performance across reasoning, math, coding, ag
 #### 7. SWE-bench Verified — Real-World Software Engineering
 - 500 verified real GitHub issues from Python repos that the model must resolve end-to-end
 - **Most production-relevant coding benchmark** — tests actual software engineering ability
-- **Current leaders:** MiniMax M2.5 (80.2%), Claude Sonnet 4.5 Thinking (top score on proprietary evals)
+- **Current leaders:** MiniMax M2.5 (80.2%), Claude Sonnet 4.6 Thinking (top score on proprietary evals)
 - Preferred over HumanEval for frontier model comparison
 
 #### 8. LiveCodeBench — Competitive Programming (Live)
@@ -73,7 +73,7 @@ Key benchmarks for evaluating LLM performance across reasoning, math, coding, ag
 #### 10. TerminalBench — CLI Task Completion
 - Measures ability to complete terminal/CLI tasks end-to-end
 - Critical for developer tooling and DevOps AI agents
-- Claude Sonnet 4.5 (Thinking) currently holds the top spot
+- Claude Sonnet 4.6 (Thinking) currently holds the top spot
 
 #### 11. IFEval (IFBench) — Instruction Following
 - Tests how precisely a model follows specific formatting and structural instructions
