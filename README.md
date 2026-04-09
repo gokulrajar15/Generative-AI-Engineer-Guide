@@ -33,7 +33,6 @@ This repository is a complete roadmap for engineers who want to master **Generat
 - **Software Engineers** transitioning into AI/ML roles
 - **Data Scientists** looking to build production AI systems
 - **Full-stack Developers** integrating AI into applications
-- **Product Engineers** building AI-powered features
 - **Technical Leads** architecting AI solutions
 
 ---
