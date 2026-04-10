@@ -9,7 +9,7 @@ Transformers are the core architecture behind modern generative models. They uti
 #### 1. Input Processing
 - **Tokenization**: Converts text into tokens (subwords, words, or characters) that can be processed by the model. Different tokenizers include BPE (Byte Pair Encoding), WordPiece, and SentencePiece.
 
-Note: You'll learn more about tokenization in the upcoming section on [Tokenization and Embeddings](03-tokenizer-architecture.md). This is very important for cost optimization and performance.
+Note: You'll learn more about tokenization in the upcoming section on [Tokenization and Embeddings](03-tokenizers.md). This is very important for cost optimization and performance.
 
 - **Embedding Layer**: Transforms tokens into dense vector representations (typically 512-4096 dimensions) that capture semantic meaning.
 - **Positional Encoding**: Adds information about the position of tokens in the sequence using sinusoidal functions or learned embeddings, enabling the model to understand word order.
@@ -54,7 +54,7 @@ Note: You'll learn more about tokenization in the upcoming section on [Tokenizat
 - **Instruction Tuning**: Training on instruction-response pairs to follow human instructions better
 - **RLHF (Reinforcement Learning from Human Feedback)**: Aligning model outputs with human preferences
 
-You'll know more about training techniques in the upcoming section on [Training and Fine-tuning](20-fine-tuning.md).
+You'll know more about training techniques in the upcoming section on [Training and Fine-tuning](20-training-generativeai-models.md).
 
 ### Key Innovations and Optimizations
 - **Flash Attention**: Optimized attention computation that reduces memory usage and increases speed

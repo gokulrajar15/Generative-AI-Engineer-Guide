@@ -117,6 +117,10 @@ AI Agents go beyond simple chatbots by:
     - Multi-modal context handling
     - Advanced context strategies
 
+15. **[Prompt Versioning](15-prompt-versioning.md)**
+    - Systematic tracking and management of prompt changes
+    - Tools for prompt versioning (Langsmith, Langfuse, PezzoAI, Agenta)
+
 ---
 
 *This comprehensive guide takes you from agent fundamentals through production deployment. Each topic builds on previous concepts, so following the weekly structure is recommended for beginners. Advanced practitioners can jump to specific areas of interest.*

@@ -58,9 +58,10 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 
 
 ### 3. Temperature
+The temperature parameter controls the randomness of the generated text. Adjusting the temperature changes how the model selects the next word in a sequence, influencing the creativity and predictability of the output. Low temperatures render outputs that are predictable and repetitive. Conversely, high temperatures encourage LLMs to produce more random, creative responses.
+
 **Range**: 0.0 to 2.0 (typical range: 0.0 to 1.0)
 
-**What it does**: Controls randomness in the output by scaling the logits (pre-softmax scores) before sampling.
 
 **How it works**:
 - **Temperature = 0**: Deterministic (always picks highest probability token) - greedy decoding
@@ -68,18 +69,14 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 - **Temperature = 1**: Uses the model's raw probabilities as-is
 - **Temperature > 1**: Flattens the distribution, making lower-probability tokens more likely
 
-**Use cases**:
-- **0.0 - 0.3**: Code generation, math problems, factual Q&A, structured data extraction
-- **0.5 - 0.8**: General chatbots, customer support, professional writing
-- **0.8 - 1.2**: Creative writing, brainstorming, diverse responses
-- **1.5 - 2.0**: Experimental, highly creative fiction, poetry (risk of incoherence)
-
 ---
 
 ### 5. Top-p (Nucleus Sampling)
+Top P , also known as nucleus sampling , is a setting supported by some LLMs; it determines which tokens should be considered when generating a response.
+
 **Range**: 0.0 to 1.0
 
-**What it does**: Samples from the smallest set of tokens whose cumulative probability exceeds the threshold p.
+![Top-p Sampling](../assets/Basics_of_Generative_AI/04-model-parameters/top_p.png)
 
 **How it works**:
 1. Sort tokens by probability (highest to lowest)
@@ -100,9 +97,11 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 ---
 
 ### 4. Top-k
+Top K is a setting supported by some LLMs; it determines how many of the most likely tokens should be considered when generating a response.
+
 **Range**: 1 to vocabulary_size (typically 1 to 100)
 
-**What it does**: Limits sampling to the k most likely tokens at each step.
+![Top-k Sampling](../assets/Basics_of_Generative_AI/04-model-parameters/top_k.png)
 
 **How it works**:
 1. Sort tokens by probability
@@ -124,9 +123,11 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 ---
 
 ### 6. Max Tokens
-**Range**: 1 to model's context window
+The max_tokens parameter specifies the maximum number of tokens that can be generated in the chat completion.
 
-**What it does**: Sets the maximum number of tokens the model can generate.
+![Max Tokens](../assets/Basics_of_Generative_AI/04-model-parameters/max_tokens.png)
+
+**Range**: 1 to model's context window
 
 **Important notes**:
 - Does NOT guarantee this many tokens (model may finish early)
@@ -144,9 +145,11 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 ---
 
 ### 7. Frequency Penalty
-**Range**: -2.0 to 2.0 (OpenAI), typically 0.0 to 2.0
+The frequency penalty parameter tells the model not to repeat a word that has already been used multiple times in the conversation.
 
-**What it does**: Penalizes tokens proportionally to how often they've already appeared.
+It basically tells the model, “You’ve already used that word a lot—try something else.” The higher the penalty, the less repetitions in the generated text.
+
+**Range**: -2.0 to 2.0 (OpenAI), typically 0.0 to 2.0
 
 **Formula**: `penalty = frequency_penalty × (token_count / total_tokens)`
 
@@ -164,9 +167,9 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 ---
 
 ### 8. Presence Penalty
-**Range**: -2.0 to 2.0 (OpenAI), typically 0.0 to 2.0
+The Presence Penalty parameter prevents the model from repeating a word, even if it’s only been used once. It basically tells the model, “You’ve already used that word once — try something else.”
 
-**What it does**: Penalizes tokens based on whether they've appeared at all (binary, not frequency-based).
+**Range**: -2.0 to 2.0 (OpenAI), typically 0.0 to 2.0
 
 **Formula**: `penalty = presence_penalty × (1 if token appeared else 0)`
 
@@ -184,9 +187,7 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 ---
 
 ### 9. Stop Sequences
-**Type**: String or array of strings
-
-**What it does**: Tells the model to stop generating when it encounters any of these sequences.
+Tells the model to stop generating when it encounters any of these sequences.
 
 **Use cases**:
 - Control output format
@@ -196,9 +197,9 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 ---
 
 ### 10. Seed (Deterministic Outputs)
-**Type**: Integer
+The seed parameter helps you get consistent LLM outputs, making your results more predictable. To enable it, you can specify an arbitrary number in your request to get (mostly) consistent results each time.
 
-**What it does**: Attempts to make outputs deterministic by fixing the random seed.
+**Type**: Integer(For example: 42)
 
 **Important notes**:
 - Must combine with `temperature=0` for true determinism
@@ -213,9 +214,9 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 ---
 
 ### 11. N (Number of Completions)
-**Type**: Integer (typically 1-10)
+Generate multiple independent completions for the same prompt.
 
-**What it does**: Generate multiple independent completions for the same prompt.
+**Type**: Integer (typically 1-10)
 
 **Important notes**:
 - Each completion counts toward your token usage
@@ -227,6 +228,11 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 - **Context Window**: Total tokens (input + output) that the model can process. this is a hard limit based on the model architecture (e.g., 1M tokens for GPT-5.4, 8192+ for GPT-4).
 
 ![Context Window](../assets/Basics_of_Generative_AI/04-model-parameters/context_window.png)
+
+- **Prompt caching**: Storing previous prompts and responses to speed up inference for repeated queries.
+
+![Prompt Caching](../assets/Basics_of_Generative_AI/04-model-parameters/prompt_caching.png)
+
 
 ## Best Practices and Common Configurations
 
@@ -297,6 +303,7 @@ You'll learn more about crafting effective messages and prompts in the upcoming 
 
 - [Temperature, top-k, top-p explanation in Youtube](https://www.youtube.com/watch?v=jnikMver_CE) <---- Must watch for understanding these parameters in depth.
 - [Top k and Top p sampling explained](https://www.youtube.com/watch?v=_3DWwb96exY) <---- Another great video for understanding sampling techniques.
+- [LLM Parameters Explained](https://www.vellum.ai/llm-parameters-guide) <---- A comprehensive blog of all key parameters.
 
 - [OpenAI API Documentation - Chat Completions](https://platform.openai.com/docs/api-reference/chat)
 - [Anthropic Claude API Documentation](https://platform.claude.com/docs/en/api/messages/create)

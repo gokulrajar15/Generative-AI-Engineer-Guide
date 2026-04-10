@@ -1,6 +1,5 @@
 ## Tokenization
 
-### What Is Tokenization?
 The tokenization process involves dividing input text and output text into smaller units, known as tokens, suitable for processing by LLMs. Tokens can be words, subwords, characters, or symbols, depending on the model's type and size.
 
 ![Tokenization](../assets/Basics_of_Generative_AI/03-tokenizers/tokenization.png)
@@ -26,12 +25,11 @@ This tokenizer uses whitespace characters such as spaces, tabs, and newlines to 
 
 **Python Implementation**:
 ```python
-# Simple whitespace tokenization
+
 def whitespace_tokenize(text):
     """Split text by whitespace characters"""
     return text.split()
 
-# Example usage
 text = "Hello, World! This is tokenization."
 tokens = whitespace_tokenize(text)
 print(tokens)
@@ -50,23 +48,18 @@ Sentence tokenization involves using punctuation and context to break text into 
 ```python
 import re
 
-# Simple sentence tokenization
+
 def sentence_tokenize(text):
-    """Split text into sentences using punctuation"""
-    # Simple regex pattern for sentence boundaries
     sentences = re.split(r'[.!?]+\s*', text)
     return [s.strip() for s in sentences if s.strip()]
 
-# Using NLTK (more robust)
 try:
     import nltk
     nltk.download('punkt', quiet=True)
     
     def sentence_tokenize_nltk(text):
-        """Split text into sentences using NLTK"""
         return nltk.sent_tokenize(text)
     
-    # Example usage
     text = "This is a sentence. And this is another! What about questions?"
     tokens = sentence_tokenize_nltk(text)
     print(tokens)
@@ -87,14 +80,10 @@ Word tokenization uses language-specific rules to segment text into individual w
 ```python
 import re
 
-# Simple word tokenization
 def word_tokenize(text):
-    """Split text into words, removing punctuation"""
-    # Remove punctuation and split by whitespace
     words = re.findall(r'\b\w+\b', text)
     return words
 
-# Using NLTK (more robust)
 try:
     import nltk
     nltk.download('punkt', quiet=True)
@@ -103,13 +92,11 @@ try:
         """Split text into words using NLTK"""
         return nltk.word_tokenize(text)
     
-    # Example usage
     text = "This is a programmer. He codes in Python!"
     tokens = word_tokenize_nltk(text)
     print(tokens)
     # Output: ['This', 'is', 'a', 'programmer', '.', 'He', 'codes', 'in', 'Python', '!']
 except ImportError:
-    # Fallback to simple version
     tokens = word_tokenize(text)
     print(tokens)
     # Output: ['This', 'is', 'a', 'programmer', 'He', 'codes', 'in', 'Python']
@@ -129,7 +116,6 @@ from collections import Counter
 import re
 
 def get_stats(vocab):
-    """Count frequency of adjacent symbol pairs"""
     pairs = Counter()
     for word, freq in vocab.items():
         symbols = word.split()
@@ -138,7 +124,6 @@ def get_stats(vocab):
     return pairs
 
 def merge_vocab(pair, vocab):
-    """Merge the most frequent pair in vocabulary"""
     bigram = re.escape(' '.join(pair))
     pattern = re.compile(r'(?<!\S)' + bigram + r'(?!\S)')
     new_vocab = {}
@@ -148,14 +133,11 @@ def merge_vocab(pair, vocab):
     return new_vocab
 
 def bpe_tokenize(text, num_merges=10):
-    """Simple BPE tokenization implementation"""
-    # Initialize vocabulary with character-level tokens
     vocab = {}
     for word in text.split():
         word_chars = ' '.join(list(word))
         vocab[word_chars] = vocab.get(word_chars, 0) + 1
     
-    # Perform BPE merges
     for i in range(num_merges):
         pairs = get_stats(vocab)
         if not pairs:
@@ -163,18 +145,15 @@ def bpe_tokenize(text, num_merges=10):
         best_pair = max(pairs, key=pairs.get)
         vocab = merge_vocab(best_pair, vocab)
     
-    # Tokenize text using learned vocabulary
     tokens = []
     for word in text.split():
         word_chars = ' '.join(list(word))
-        # Find the representation in vocab
         for v in vocab:
             if v.replace(' ', '') == word:
                 tokens.extend(v.split())
                 break
     return tokens
 
-# Using Hugging Face tokenizers (recommended for production)
 try:
     from tokenizers import Tokenizer
     from tokenizers.models import BPE
@@ -182,7 +161,6 @@ try:
     from tokenizers.pre_tokenizers import Whitespace
     
     def bpe_tokenize_hf(text, vocab_size=1000):
-        """BPE tokenization using Hugging Face tokenizers"""
         tokenizer = Tokenizer(BPE())
         tokenizer.pre_tokenizer = Whitespace()
         
@@ -192,13 +170,11 @@ try:
         output = tokenizer.encode(text)
         return output.tokens
     
-    # Example usage
     text = "low lower lowest"
     tokens = bpe_tokenize_hf(text)
     print(tokens)
 except ImportError:
     print("Install tokenizers: pip install tokenizers")
-    # Use simple version
     text = "low lower lowest"
     tokens = bpe_tokenize(text, num_merges=5)
     print(tokens)
@@ -274,7 +250,7 @@ Hugging Face provides a powerful library for tokenization that supports multiple
 
 ---
 
-*Checkout model parameters and their impact on inference in the next section.*
+*Let's deep dive into model parameters and their impact on inference in the next section.*
 
 **Next**: [Model Parameters](04-model-parameters.md)
 

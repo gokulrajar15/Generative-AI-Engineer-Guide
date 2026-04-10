@@ -15,4 +15,8 @@ Context engineering is the process of designing the entire environment surroundi
 
 *This shift is critical because while prompt engineering might work for simple demos, 95% of AI pilots fail in production because they lack the grounding, data access, and guardrails provided by comprehensive context engineering.*
 
+---
+
+[<- Previous: Feedback Loops and Optimization](13-feedback-loops-optimization.md) | [Next: Prompt Versioning and Management ->](15-prompt-versioning-management.md)
+
 [<- Back to Agentic AI Index](README.md)

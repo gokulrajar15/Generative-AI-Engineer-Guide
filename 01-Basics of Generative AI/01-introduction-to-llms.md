@@ -7,9 +7,10 @@ Large Language Models (LLMs) are artificial intelligence models designed to unde
 
 ### Open-source LLMs
 
-- **Alibaba**: Qwen 3.5
+- **Alibaba**: Qwen 3.5, Qwen 3, Qwen 2.5
 - **MoonshotAI**: Kimi 2.5, Kimi 2
 - **ZAI**: GLM 5.1, GLM 5, 4.7, 4.6
+- **Xiaomi**: MiMo V2 Flash
 - **Meta**: LLaMA 4, LLaMA 3.3, LLaMA 3.2
 - **Google**: Gemma 4, Gemma 3
 - **Mistral**: Mistral Large 3, Mistral Small 3, Ministral 3, Devstral 3
@@ -78,8 +79,8 @@ print(response.output_text)
 
 [Explore more about groq models and their APIs](https://console.groq.com/docs/overview)
 
-*Checkout the architecture behind these Generative AI models in the next section.*
-
+*We'll deep dive into how the LLM's architecture works in the upcoming section on*
+*
 **Next**: [Transformers and Other Architectures →](02-transformers-architecture.md)
 
 [← Back to Index](README.md)
