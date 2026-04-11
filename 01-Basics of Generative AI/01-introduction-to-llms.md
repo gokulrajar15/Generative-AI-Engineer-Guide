@@ -80,7 +80,9 @@ print(response.output_text)
 [Explore more about groq models and their APIs](https://console.groq.com/docs/overview)
 
 *We'll deep dive into how the LLM's architecture works in the upcoming section on*
-*
+
+---
+
 **Next**: [Transformers and Other Architectures →](02-transformers-architecture.md)
 
 [← Back to Index](README.md)

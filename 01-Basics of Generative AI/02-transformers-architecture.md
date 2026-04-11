@@ -100,6 +100,8 @@ Reference:
 
 *Checkout the tokenization techniques used in these architectures in the next section.*
 
-**Next**: [Tokenization and It's Types→](03-tokenizers.md)
+
+[<- Previous: Introduction to LLM's](01-introduction-to-llms.md) | [Next: Tokenization and It's Types→](03-tokenizers.md)
+
 
 [← Back to Index](README.md)
