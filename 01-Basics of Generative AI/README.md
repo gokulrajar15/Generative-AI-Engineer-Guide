@@ -2,6 +2,8 @@
 
 Welcome to the Basics of Generative AI module! This comprehensive guide covers everything you need to know to get started with generative AI, from understanding different models to deploying them in production.
 
+![Generative AI](../assets/Basics_of_Generative_AI/generative_ai.png)
+
 ## 📚 Table of Contents
 
 ### Foundation
