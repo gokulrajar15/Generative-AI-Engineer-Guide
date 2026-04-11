@@ -14,6 +14,8 @@ Think of it as writing an interface contract: you define what goes in, what come
 2. **Few-Shot Prompting** — Provide a few input-output examples inside the prompt to guide the model. Great for tasks where you want to demonstrate a specific format or style.
 3. **Chain-of-Thought Prompting** — Encourage the model to "think step by step" by asking it to include intermediate reasoning before answering. This significantly improves performance on complex tasks.
 
+and more ....
+
 To explore more advanced strategies, check out the full guide: [Prompt Engineering](https://www.promptingguide.ai/techniques).
 
 ---
