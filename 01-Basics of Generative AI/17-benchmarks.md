@@ -1,7 +1,8 @@
 ## Understanding LLM Benchmarks
 
-Key benchmarks for evaluating LLM performance across reasoning, math, coding, agentic tasks, and human preference. Focus on non-saturated benchmarks that differentiate frontier models.
+Key benchmarks for evaluating LLM performance across reasoning, math, coding, agentic tasks, and human preference. Focus on non-saturated benchmarks that differentiate frontier models. 
 
+Their is around 450+ benchmarks in the LLM space and 40+ categories. Below are the most important ones to know as of 2026, organized by category and saturation risk.
 ---
 
 ### 🧠 Reasoning & General Intelligence

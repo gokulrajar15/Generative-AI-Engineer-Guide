@@ -15,7 +15,6 @@
 
 - **Alibaba**: Qwen3 ASR, Qwen3 TTS
 - **OpenAI**: Whisper large v3 series
-- **NVIDIA**: Personaplex-7b-v1 (Speech-to-Speech)
 - **Suno**: Bark TTS
 
 📚 [Explore more open-source TTS and STT models](https://huggingface.co/models)
@@ -24,6 +23,12 @@
 
 - **Google**: gemini-2.5-flash-preview-tts
 - **OpenAI**: gpt-4o-mini-tts, gpt-4o-mini-transcribe
+
+
+## Voice to Voice (V2V) Models
+It is a is a real-time speech-to-speech conversational model that jointly performs streaming speech understanding and speech generation.
+- **NVIDIA**: Personaplex-7b-v1 (Speech-to-Speech)
+
 
 ---
 

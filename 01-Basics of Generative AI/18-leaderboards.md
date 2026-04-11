@@ -4,7 +4,7 @@ Track the latest model performance using popular leaderboards across reasoning, 
 
 ### Popular LLM Leaderboards
 
-1. [LLM Stats](https://llm-stats.com/) — Comprehensive model comparisons
+1. [LLM Stats](https://llm-stats.com/) — End to end model performance tracking across multiple benchmarks
 2. [Vellum LLM Leaderboard](https://www.vellum.ai/llm-leaderboard) — Enterprise-focused evaluations
 3. [Artificial Analysis AI](https://artificialanalysis.ai/) — In-depth model analysis
 4. [Scale Benchmarks](https://scale.com/benchmarks) — Standardized benchmarks
