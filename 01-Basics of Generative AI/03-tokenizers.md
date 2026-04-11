@@ -252,6 +252,8 @@ Hugging Face provides a powerful library for tokenization that supports multiple
 
 *Let's deep dive into model parameters and their impact on inference in the next section.*
 
-**Next**: [Model Parameters](04-model-parameters.md)
+---
+
+[<- Previous: Transformers and Other Architectures](02-transformers-architecture.md) | [Next: Model Parameters and Key Terms →](04-model-parameters.md)
 
 [← Back to Index](README.md)

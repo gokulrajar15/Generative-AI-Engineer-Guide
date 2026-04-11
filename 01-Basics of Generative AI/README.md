@@ -77,50 +77,45 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
     - Voice customization
     - Streaming audio output
 
-14. [**Image Generation**](14-image-generation.md)
-    - Text-to-image models
+14. [**Image and Video Generation**](14-image-and-video-generation.md)
+    - Text-to-image and video models
     - Open-source vs closed-source options
     - Practical applications
 
-15. [**Video Generation**](15-video-generation.md)
-    - Text-to-video models
-    - Video editing with AI
-    - Multi-modal video understanding
-
 ### Evaluation & Quality 
 
-16. [**LLM Evaluation Metrics**](16-evaluation-metrics.md)
+15. [**LLM Evaluation Metrics**](15-evaluation-metrics.md)
     - Technical Metrics (Perplexity, BLEU, ROUGE)
     - Business Metrics (ROI, Customer satisfaction)
     - Quality assessment
 
-17. [**LLM Inference Metrics**](17-inference-metrics.md)
+16. [**LLM Inference Metrics**](16-inference-metrics.md)
     - Latency, Throughput
     - Memory usage, Cost efficiency
     - Performance optimization
 
-18. [**Understanding LLM Benchmarks**](18-benchmarks.md)
+17. [**Understanding LLM Benchmarks**](17-benchmarks.md)
     - GPQA, MMLU-PRO, AIME
     - LiveCode Bench, MuSR, HLE
     - How to interpret benchmark scores
 
-19. [**LLM Leaderboards**](19-leaderboards.md)
+18. [**LLM Leaderboards**](18-leaderboards.md)
     - Artificial Analysis, Vellum, Scale.com
     - Hugging Face, Live Bench
     - Choosing the right model
 
 ### Advanced & Production  <- Optional for beginners>
-20. [**LLM Fine-tuning (Hands-on)**](20-fine-tuning.md)
+19. [**LLM Fine-tuning (Hands-on)**](19-fine-tuning.md)
     - Pre-training and data preparation
     - Fine-tuning Techniques (PEFT, LoRA, QLoRA)
     - Preference Alignment (RLHF, DPO, PPO)
 
-21. [**Quantization**](21-quantization.md)
+20. [**Quantization**](20-quantization.md)
     - INT8, INT4 Quantization
     - GPTQ, AWQ, GGUF
     - Benefits and trade-offs
 
-23. [**Model Hosting and Inference**](23-model-hosting.md)
+21. [**Model Hosting and Inference**](21-model-hosting.md)
     - Inference Servers (vLLM, SGLang, Triton, LitServe)
     - Deployment best practices
     - Scaling considerations
@@ -130,7 +125,7 @@ Welcome to the Basics of Generative AI module! This comprehensive guide covers e
 
 *We have covered basics of generative AI in this section. The next sections will cover RAG (Retrieval-Augmented Generation) and AI Agents, which are more advanced topics that build on these fundamentals.*
 
-Next: [Retrieval-Augmented Generation (RAG)](24-rag.md)
+Next: [Retrieval-Augmented Generation (RAG)](../02-Retrieval%20Augmented%20Generation/README.md)
 
 [← Back to Main Guide](../README.md)
 

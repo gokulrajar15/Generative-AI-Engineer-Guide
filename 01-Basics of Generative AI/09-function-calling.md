@@ -103,7 +103,8 @@ Refercences:
 - [Claude Function Calling Documentation](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
 - [Gemini Function Calling Documentation](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting)
 
+---
 
-**Next**: [Streaming Outputs](10-streaming-outputs.md)
+[← Previous: Structured Output Generation](08-structured-output.md) | [Next: Streaming Outputs →](10-streaming-outputs.md)
 
 [← Back to Index](README.md)

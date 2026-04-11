@@ -2,7 +2,7 @@
 
 Quantization is a powerful technique for optimizing large language models (LLMs) by reducing their precision, which leads to smaller model sizes and faster inference times. This is especially important for deploying LLMs in production environments where resources may be limited.
 
-![Quantization](../assets/Basics_of_Generative_AI/21-quantization/quantization.png)
+![Quantization](../assets/Basics_of_Generative_AI/20-quantization/quantization.png)
 
 Techniques for optimizing LLMs and reducing model size:
 - **Bits and bytes**: Reducing precision from 16-bit to 8-bit or 4-bit
@@ -20,3 +20,9 @@ Techniques for optimizing LLMs and reducing model size:
 - Minimal accuracy loss
 
 📚 [Read more about quantization](https://cast.ai/blog/demystifying-quantizations-llms/)
+
+---
+
+[← Previous: Training Generative AI Models](19-training-generativeai-models.md) | [Next: Advanced Topics on Training and Hosting LLMs →](21-model-hosting-and-serving-strategies.md)
+
+[← Back to Index](README.md)

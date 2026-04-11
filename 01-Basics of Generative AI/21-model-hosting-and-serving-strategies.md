@@ -29,3 +29,9 @@ Key concepts:
 - **Continuous batching**: Dynamic request handling
 - **Model parallelism**: Distributing models across GPUs
 - **Tensor parallelism**: Splitting model layers
+
+---
+
+[← Previous: Quantization](20-quantization.md)
+
+[← Back to Index](README.md)

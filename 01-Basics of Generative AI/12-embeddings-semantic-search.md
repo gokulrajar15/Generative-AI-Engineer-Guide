@@ -39,6 +39,8 @@ Note: In RAG modules, you'll know why the embeddings and rerankers are important
 
 *Now that you understand the basics of embeddings and rerankers, let's explore how to use them for semantic search and vector databases in the next section.*
 
-**Next**: [Text to speech and Speech to text models](13-tts-and-stt.md)
+---
+
+[← Previous: Real-time APIs](11-realtime-apis.md) | [Next: Text-to-Speech (TTS) and Speech-to-Text (STT) Models →](13-tts-and-stt.md)
 
 [← Back to Index](README.md)

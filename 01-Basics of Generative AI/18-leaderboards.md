@@ -19,6 +19,6 @@ Track the latest model performance using popular leaderboards across reasoning, 
 
 ---
 
-**Next**: [Advanced Topics on Training and Hosting LLMs](20-training-generativeai-models.md)
+[← Previous: Benchmarking and Optimization](17-benchmarks.md) | [Next: Training Generative AI Models →](19-training-generativeai-models.md)
 
 [← Back to Index](README.md)

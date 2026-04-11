@@ -1,7 +1,5 @@
 # Prompting Strategies for Engineers
 
-## What is Prompting (for Engineers)?
-
 Prompting is not just "asking questions nicely." For engineers, it's about **controlling model behavior programmatically** — getting structured outputs, enforcing formats, reducing hallucinations, and making the model behave like a reliable software component.
 
 Think of it as writing an interface contract: you define what goes in, what comes out, and what happens in edge cases.
@@ -77,6 +75,8 @@ Keep prompts focused. Start minimal — add instructions only when the output br
 
 *Now that you understand the core prompting strategies and common pitfalls, let's move on to how to manage conversation context effectively to further improve your application's performance. let's move into hands-on*
 
-**Next**: [Hands on](07-hands-on-practice.md)
+---
+
+[← Previous: Context Management](05-context-management.md) | [Next: Hands-on Practice with APIs →](07-hands-on-practice.md)
 
 [← Back to Index](README.md)

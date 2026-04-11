@@ -170,7 +170,8 @@ print(math_reasoning)
 
 Note: Each model providers have their own way of handling structured output. Always check the documentation for your specific provider to see if they offer built-in support for structured formats or if you need to implement your own parsing logic.
 
+---
 
-**Next**: [Function Calling](09-function-calling.md)
+[← Previous: Prompting Best Practices and Strategies](06-prompting-strategies.md) | [Next: Function Calling →](09-function-calling.md)
 
 [← Back to Index](README.md)

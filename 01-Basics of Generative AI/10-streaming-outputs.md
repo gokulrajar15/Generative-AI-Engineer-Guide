@@ -36,7 +36,8 @@ To know more about streaming outputs, check out the
 [OpenAI API documentation](https://developers.openai.com/api/docs/guides/streaming-responses).
 [Claude API documentation](https://platform.claude.com/docs/en/build-with-claude/streaming)
 
+---
 
-**Next**: [Real-time APIs](11-realtime-apis.md)
+[← Previous: Function Calling](09-function-calling.md) | [Next: Real-time APIs →](11-realtime-apis.md)
 
 [← Back to Index](README.md)

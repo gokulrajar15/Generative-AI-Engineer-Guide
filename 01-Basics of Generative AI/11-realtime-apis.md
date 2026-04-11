@@ -19,7 +19,8 @@ To learn more about the Realtime API and how to use it, check out the following 
 - [OpenAI API documentation](https://developers.openai.com/api/docs/guides/realtime)
 - [Gemini API documentation](https://ai.google.dev/gemini-api/docs/live-api)
 
+---
 
-**Next**: [Embeddings Models](12-embeddings-semantic-search.md)
+[← Previous: Streaming Outputs](10-streaming-outputs.md) | [Next: Embedding models →](12-embeddings-semantic-search.md)
 
 [← Back to Index](README.md)

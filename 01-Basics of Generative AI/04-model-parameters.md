@@ -311,6 +311,9 @@ Generate multiple independent completions for the same prompt.
 
 *We will cover more advanced techniques for controlling model outputs, such as prompt engineering and context management, in the upcoming sections.*
 
-**Next**: [Context Management](05-context-management.md)
+---
+
+[<- Previous: Tokenization and It's Types](03-tokenizers.md) | [Next: Context Management →](05-context-management.md)
+
 
 [← Back to Index](README.md)

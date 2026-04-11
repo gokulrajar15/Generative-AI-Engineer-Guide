@@ -27,9 +27,11 @@
 
 ---
 
-
 *Now that you understand the basics of TTS and STT models, let's explore image and video generation models in the next section.*
 
-**Next**: [Image generation models](14-image-generation.md)
+---
+
+[← Previous: Embeddings and Rerankers](12-embeddings-semantic-search.md) | [Next: Image and Video Generation Models →](14-image-generation.md)
+
 
 [← Back to Index](README.md)

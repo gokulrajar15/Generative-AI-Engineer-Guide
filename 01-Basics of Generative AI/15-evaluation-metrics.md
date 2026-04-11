@@ -2,7 +2,7 @@
 
 Evaluating LLMs requires a comprehensive approach, employing a range of measures to assess various aspects of their performance. In this discussion, we explore key evaluation criteria for LLMs, including accuracy and performance, bias and fairness, as well as other important metrics.
 
-![LLM Evaluation Metrics](../assets/Basics_of_Generative_AI/16-evaluation-metrics/llm_metrics.png)
+![LLM Evaluation Metrics](../assets/Basics_of_Generative_AI/15-evaluation-metrics/llm_metrics.png)
 
 ## Why Evaluation is Hard for LLMs
 
@@ -268,6 +268,8 @@ Promote to production   ──or──   Roll back
 
 > **Key insight:** No single metric tells the full story. Use technical metrics to debug model quality and business metrics to justify the product. Run both continuously — not just at launch.
 
-**Next**: [Inference Metrics](17-inference-metrics.md)
+---
+
+[← Previous: Image and Video Generation Models](14-image-and-video-generation.md) | [Next: Inference Metrics →](16-inference-metrics.md)
 
 [← Back to Index](README.md)

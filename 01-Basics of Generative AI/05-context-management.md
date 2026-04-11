@@ -590,6 +590,8 @@ I'll attach the project for branching soon...........
 
 *Now that you understand the core strategies for managing conversation context, Let's move on to the prompt engineering techniques that can further optimize how you craft messages(system prompt) for better model performance.*
 
-**Next**: [Prompt Engineering](06-prompting-strategies.md)
+---
+
+[← Previous: Model Parameters and Key Terms](04-model-parameters.md) | [Next: Prompting Best Practices and Strategies →](06-prompting-strategies.md)
 
 [← Back to Index](README.md)

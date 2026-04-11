@@ -134,12 +134,12 @@ Key benchmarks for evaluating LLM performance across reasoning, math, coding, ag
 | Human-facing chat | Chatbot Arena ELO |
 
 
-Referces:
+References:
 
-- [LLM Beanchmarks](https://www.lxt.ai/blog/llm-benchmarks/)
+- [LLM Benchmarks](https://www.lxt.ai/blog/llm-benchmarks/)
 
 ---
 
-**Next**: [Leaderboards](19-leaderboards.md)
+[← Previous: Inference Metrics](16-inference-metrics.md) | [Next: Leaderboards and Model Cards →](18-leaderboards.md)
 
 [← Back to Index](README.md)
