@@ -20,6 +20,8 @@ Optical Character Recognition (OCR) converts images and scanned documents into m
 
 ## This is a hands-on tutorial that will be added soon! Stay tuned for a practical guide on document extraction techniques, covering tools and libraries for handling various formats, strategies for preserving structure, and tips for optimizing extraction quality for RAG systems.
 
+---
+
 [← Previous: Document Extraction](07-document-extraction.md) | [Next: Indexing and Retrieval →](09-optimization-strategies.md)
 
 [← Back to Index](README.md)

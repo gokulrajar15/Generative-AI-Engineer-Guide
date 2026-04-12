@@ -161,6 +161,8 @@ Models that delay the interaction between query and document vectors.
 
 *This is very cruicial for RAG systems. The choice of embedding model can significantly impact retrieval quality, latency, and storage requirements. In the next section, we'll explore about chunks and how to create them effectively for better retrieval performance.*
 
-**Next**: [Chunking strategies →](04-chunking-strategies.md)
+---
+
+[← Previous: Vector search algorithms](02-vector-search-algorithms.md) | [Next: Chunks and chunking strategies →](04-chunking-strategies.md)
 
 [← Back to Index](README.md)

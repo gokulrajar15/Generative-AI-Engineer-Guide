@@ -229,7 +229,8 @@ Real-world systems often combine architectures for better results.
 
 *So far, we have covered the core components of RAG systems. Next, we will explore how graph databases can enhance RAG by providing structured knowledge representation and powerful traversal capabilities.*
 
+---
 
-[<- Previous: Evaluation Metrics](14-evaluation-metrics.md) | [Next: Graph Databases →](16-graph-databases.md)
+[<- Previous: Evaluation Metrics](14-evaluation-metrics.md) | [Next: Graph Databases →](16-graph-database.md)
 
 [<- Back to Index](README.md)

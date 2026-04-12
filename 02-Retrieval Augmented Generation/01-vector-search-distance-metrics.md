@@ -113,6 +113,9 @@ def find_similar(query_vector, document_vectors, k=5):
 
 *Hope you get a good grasp of vector search and distance metrics! These concepts are fundamental for building effective RAG systems. In the next section, we'll explore different vector search algorithms.*
 
+---
+
+
 **Next**: [Vector search algorithms →](02-vector-search-algorithms.md)
 
 [← Back to Index](README.md)

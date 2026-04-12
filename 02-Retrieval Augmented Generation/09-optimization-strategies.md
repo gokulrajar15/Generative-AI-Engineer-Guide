@@ -150,6 +150,7 @@ Use 1 bit per dimension (sign only).
 7. **Security**: Tenant isolation, access control
 8. **Backup**: Regular snapshots, disaster recovery
 
+---
 
 [<- Previous: OCR Document Extraction](08-ocr-document-extraction.md) | [Retrival Strategies →](10-retrieval-strategies.md)
 

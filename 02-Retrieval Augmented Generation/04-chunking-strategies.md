@@ -58,6 +58,8 @@ Chunking is the process of breaking down large documents into smaller, manageabl
 *Chunking is very important for RAG systems. The right chunking strategy can significantly improve retrieval relevance and generation quality.*
 
 
-**Next**: [Vector Databases →](05-vector-databases.md)
+---
+
+[← Previous: Embedding models](03-embedding-models.md) | [Next: Vector Databases →](05-vector-databases.md)
 
 [← Back to Index](README.md)

@@ -58,6 +58,8 @@ Cross-encoders see both query and document together, enabling better understandi
 
 ## This is a hands-on tutorial that will be added soon! Stay tuned for a practical guide on document extraction techniques, covering tools and libraries for handling various formats, strategies for preserving structure, and tips for optimizing extraction quality for RAG systems.
 
+---
+
 [← Previous: Retrieval Strategies](10-retrieval-strategies.md) | [Generation Strategies →](12-generation-strategies.md)
 
 [← Back to Index](README.md)

@@ -60,6 +60,8 @@ Naive approaches like comparing every vector pair (brute force) don't scale:
 
 *Hope you get a good grasp of vector search and distance metrics! These concepts are fundamental for building effective RAG systems. In the next section, we'll explore different vector search algorithms.*
 
-**Next**: [Model used for vector search →](03-embedding-models.md)
+---
+
+[← Previous: Vector search distance metrics](01-vector-search-distance-metrics.md) | [Next: Emdedding models →](03-embedding-models.md)
 
 [← Back to Index](README.md)

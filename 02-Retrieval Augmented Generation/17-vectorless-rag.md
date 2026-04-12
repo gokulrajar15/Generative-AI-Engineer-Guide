@@ -157,6 +157,8 @@ Vectorless RAG is an alternative approach to traditional vector-based retrieval 
 
 *Vectorless RAG represents an evolution in retrieval methods, particularly for complex professional documents where accuracy and explainability are paramount. As LLMs become more capable, reasoning-based approaches will likely play an increasingly important role alongside traditional vector search.*
 
+---
+
 [<- Previous: Graph Databases](17-graph-databases.md)
 
 [<- Back to Index](README.md)

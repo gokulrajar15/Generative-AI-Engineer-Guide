@@ -24,6 +24,8 @@ In real-world applications, documents come in many formats(PDF, DOCX, HTML, TXT,
 
 ## This is a hands-on tutorial that will be added soon! Stay tuned for a practical guide on document extraction techniques, covering tools and libraries for handling various formats, strategies for preserving structure, and tips for optimizing extraction quality for RAG systems.
 
+---
+
 [← Previous: Building a RAG System](06-building-rag-system.md) | [-> Next: OCR based document extraction →](08-ocr-document-extraction.md)
 
 [← Back to Index](README.md)

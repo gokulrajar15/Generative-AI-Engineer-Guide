@@ -37,6 +37,8 @@ User interface protocols guide the generation process, such as structured output
 - May limit creativity of the model
 - Can be rigid for complex queries
 
+---
+
 [← Previous: Reranker Models](11-reranker-models.md) | [Next: Multimodal Vector Search →](13-multimodal-vector-search.md)
 
 [← Back to Index](README.md)
