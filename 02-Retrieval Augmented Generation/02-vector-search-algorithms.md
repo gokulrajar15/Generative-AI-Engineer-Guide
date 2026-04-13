@@ -13,7 +13,6 @@ Naive approaches like comparing every vector pair (brute force) don't scale:
 - Impractical for millions of vectors
 - Need for approximate nearest neighbor (ANN) algorithms
 
----
 
 ## Key Vector Search Algorithms
 
@@ -34,7 +33,6 @@ Naive approaches like comparing every vector pair (brute force) don't scale:
 | LSH | ⚡⚡ | ✓ | Medium | Simple implementation |
 | Flat | ⚡ | ✓✓✓ | High | Small datasets |
 
----
 
 ## Choosing the Right Algorithm
 
@@ -51,7 +49,6 @@ Naive approaches like comparing every vector pair (brute force) don't scale:
 - **> 10M vectors**: IVF or IVF-PQ for efficiency
 - **Memory limited**: PQ-based methods
 - **Highest accuracy**: HNSW with high parameters
-
 
 
 [Learn more about algorithms](https://www.pinecone.io/learn/vector-database/)  <---- Great resource with detailed explanations and comparisons!

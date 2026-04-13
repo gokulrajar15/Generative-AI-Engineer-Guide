@@ -32,6 +32,13 @@ The most common type where every dimension has a non-zero value.
 - **Sentence Transformers** (all-MiniLM-L6-v2, all-mpnet-base-v2)
 - **Google text-embedding**
 
+Output: Dense vector
+
+```
+[0.123, -0.456, 0.789, ...]
+```
+
+
 [Embedding models](../01-Basics%20of%20Generative%20AI/12-embeddings-semantic-search.md)
 
 **Use cases:**
