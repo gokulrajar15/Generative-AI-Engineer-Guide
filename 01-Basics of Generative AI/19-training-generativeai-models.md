@@ -39,6 +39,10 @@ Fine-tuning takes a pre-trained base model and trains it further on a smaller, h
 
 **PEFT (Parameter-Efficient Fine-Tuning)** — Only a small subset of parameters are trained, keeping the base model largely frozen.
 
+
+
+[Training Dataset format example](https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/prompt_format.md)
+
 ---
 
 ### PEFT Methods
