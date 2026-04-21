@@ -204,6 +204,8 @@ Removes redundant or low-importance weights from the model. Often combined with 
 
 Uses a small draft model to predict tokens, verified by the larger model in parallel. Reduces generation latency without changing model quality.
 
+[Speculative Decoding Blog](https://www.adaptive-ml.com/post/speculative-decoding-visualized)
+
 ---
 
 ## Stage 5: Evaluation
