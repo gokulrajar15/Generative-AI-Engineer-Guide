@@ -7,7 +7,7 @@ Large Language Models (LLMs) are artificial intelligence models designed to unde
 
 ### Open-source LLMs
 
-- **Alibaba**: Qwen 3.5, Qwen 3, Qwen 2.5
+- **Alibaba**: Qwen 3.6, Qwen 3.5, Qwen 3, Qwen 2.5
 - **MoonshotAI**: Kimi 2.5, Kimi 2
 - **ZAI**: GLM 5.1, GLM 5, 4.7, 4.6
 - **Xiaomi**: MiMo V2 Flash
@@ -20,8 +20,8 @@ Large Language Models (LLMs) are artificial intelligence models designed to unde
 
 ### Closed-source LLMs
 
-- **OpenAI**: GPT-5.4, GPT-5, GPT-4.1
-- **Anthropic**: Claude 4.6 (Opus, Haiku, Sonnet), Claude 4.5, Claude 4
+- **OpenAI**: GPT.5.5, GPT-5.4, GPT-5, GPT-4.1
+- **Anthropic**: Claude 4.7 (Opus, Haiku, Sonnet), Claude 4.6 (Opus, Haiku, Sonnet), Claude 4.5, Claude 4
 - **Google**: Gemini 3.1 (Pro, Flash), Gemini 2.5 (Pro, Flash)
 - **Deepseek**: Deepseek Chat and Reasoner
 
