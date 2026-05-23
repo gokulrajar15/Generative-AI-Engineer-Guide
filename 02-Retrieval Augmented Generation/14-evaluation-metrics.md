@@ -28,7 +28,6 @@ Evaluating RAG systems is crucial for measuring quality, identifying weaknesses,
 ## Generation Metrics(Qualitative)
 - **Answer Relevancy:** How relevant the generated response is to the given input.
 - **Faithfulness:** Whether the generated response contains hallucinations to the retrieval context.
-- **Hallucination Rate:** The frequency of generated content that is not supported by the retrieved context.
 
 ## Performance Metrics
 - **Latency:** Time taken for retrieval and generation.
