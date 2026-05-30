@@ -9,7 +9,7 @@ Guardrails help you build safe, compliant AI applications by validating and filt
 1. **Bias** - Detect and mitigate biased or harmful content in agent outputs.
 2. **Toxicity** - Filter out toxic language, hate speech, or harassment.
 3. **PII** - used to detect and redact personally identifiable information (PII) to protect user privacy.
-  - Examples of PII include names, addresses, phone numbers, email addresses, social security numbers, and other sensitive data that can be used to identify an individual. [Privacy Filter Model](https://huggingface.co/openai/privacy-filter).
+  - Examples of PII include account number, private address, private email, private person, private phone, private url, private date, and secret. that can be used to identify an individual. [Privacy Filter Model](https://huggingface.co/openai/privacy-filter).
 4. **Topic Banning** - Prevent discussion of certain sensitive or prohibited topics.
 5. **Prompt Injection** - Identify and block attempts to manipulate the agent through malicious prompts.
 6. **Jailbreak Detection** - Detect attempts to bypass safety measures and access restricted capabilities.
