@@ -23,9 +23,9 @@ The practice of prompt versioning is an important component of a larger system c
 - [**Agenta**](https://github.com/Agenta-AI/agenta): Agenta is an open-source framework that supports prompt versioning and management, enabling teams to collaborate and optimize their AI agents efficiently.
 
 
-References:
+--- 
 
-[Prompt Versioning Guide](https://launchdarkly.com/blog/prompt-versioning-and-management/) 
-[Prompt Versioning Best Practices](https://www.promptingguide.ai/best-practices/prompt-versioning)
+
+[<- Previous: Context Engineering](14-context-engineering.md) | [Next: AI Gateway](16-ai-gateway.md)
 
 [<- Back to Agentic AI Index](README.md)
